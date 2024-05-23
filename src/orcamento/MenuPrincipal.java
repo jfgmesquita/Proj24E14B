@@ -18,6 +18,8 @@ public class MenuPrincipal {
      * @param args
      */
     public static void main(String[] args) {
+		System.out.println("Katchau");
+
         Gerir gestor = new Gerir();
         
         Scanner input = new Scanner(System.in);
@@ -81,7 +83,7 @@ public class MenuPrincipal {
         //----------------------------------------------------------------------------------------------------
 
         do {
-            System.out.println("Seja bem-vindo! E um prazer tê-lo connosco.");
+            System.out.println("Seja bem-vindo! É um prazer tê-lo connosco.");
             System.out.println("1) Fazer login");
             System.out.println("2) Criar um perfil");
             System.out.println("0) Sair do programa");
