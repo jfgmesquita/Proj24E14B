@@ -1,0 +1,4 @@
+nome,email,password,isManager
+Devysson,devyssonsc@gmail.com,Devysson$2003,true
+João Mesquita,jolitas2005@gmail.com,Joao$2005,false
+Ana Souto,anacarolinapsouto@gmail.com,Ana$2001,false
