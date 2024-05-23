@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-21">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="C:/Users/jolit/OneDrive/Ambiente de Trabalho/Faculdade/1.º Ano (UPT)/2.º Semestre/Programacao Orientada a Objetos (6 ECTS)/eclipse-workspace/Proj24E14B/commons-validator-1.8.0.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
