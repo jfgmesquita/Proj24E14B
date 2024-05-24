@@ -18,6 +18,7 @@ public class MenuPrincipal {
      * @param args
      */
     public static void main(String[] args) {
+		System.out.println("Katchau");
 
         Gerir gestor = new Gerir();
         
@@ -29,7 +30,9 @@ public class MenuPrincipal {
         
         String path = "C:\\Users\\jolit\\OneDrive\\Ambiente de Trabalho\\Faculdade\\1.º Ano (UPT)\\2.º Semestre\\Programacao Orientada a Objetos (6 ECTS)\\eclipse-workspace\\Proj24E14B\\paineis.txt";
         String pathAdm = "C:\\Users\\jolit\\OneDrive\\Ambiente de Trabalho\\Faculdade\\1.º Ano (UPT)\\2.º Semestre\\Programacao Orientada a Objetos (6 ECTS)\\eclipse-workspace\\Proj24E14B\\adms.txt";
-        
+        // String path = "C:\\Faculdade\\Projeto SI + POO\\Proj24E14B\\Proj24E14B - Incremento 1\\paineis.txt";
+        // String pathAdm = "C:\\Faculdade\\Projeto SI + POO\\Proj24E14B\\Proj24E14B - Incremento 1\\adms.txt";
+
         //Leitura de admins
         //----------------------------------------------------------------------------------------------------
         
