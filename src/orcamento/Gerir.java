@@ -151,12 +151,18 @@ public class Gerir {
     				}
     			}
     			
+                // cálculo do número de painéis necessários, valor total e tempo total de instalação
     			double prodMensal = producao * 30;
     			double numeroPaineis = userConsumo / prodMensal;
     			double valorTotal = numeroPaineis * preco;
     			double tempoTotalInstalacao = numeroPaineis * tempo;
 
-    			Orcamento orcamento = new Orcamento(descricao, modelo, valorTotal, tempoTotalInstalacao, numeroPaineis);
+                // cálculo do tempo até ao retorno do investimento
+                double energiaSolar = numeroPaineis * prodMensal * (1 - 0.2); // 20% de perdas
+                double economiaMensal = userConsumo - energiaSolar;
+                double retorno = valorTotal / economiaMensal;
+
+    			Orcamento orcamento = new Orcamento(descricao, modelo, valorTotal, tempoTotalInstalacao, numeroPaineis, retorno);
     			user.getListaOrcamentos().add(orcamento);
     			
     			System.out.println("\n" + user.getListaOrcamentos().getLast());
