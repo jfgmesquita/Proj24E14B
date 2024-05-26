@@ -21,11 +21,11 @@ public class Orcamento {
 		this.tempoTotalInstalacao = (int) Math.ceil(tempoTotalInstalacao);
 		this.numPaineis = (int) Math.ceil(numPaineis);
         this.retorno = (int) Math.ceil(retorno);
+    }
 	
     /*
      * @return a descrição do orçamento
      */
-    }
 	public String getDescricao() {
         return descricao;
     }
