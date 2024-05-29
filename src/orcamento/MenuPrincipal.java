@@ -28,8 +28,8 @@ public class MenuPrincipal {
         String email = "";
         String password;
         
-        // String path = "C:\\Users\\jolit\\OneDrive\\Ambiente de Trabalho\\Faculdade\\1.º Ano (UPT)\\2.º Semestre\\Programacao Orientada a Objetos (6 ECTS)\\eclipse-workspace\\Proj24E14B\\paineis.txt";
-        // String pathAdm = "C:\\Users\\jolit\\OneDrive\\Ambiente de Trabalho\\Faculdade\\1.º Ano (UPT)\\2.º Semestre\\Programacao Orientada a Objetos (6 ECTS)\\eclipse-workspace\\Proj24E14B\\adms.txt";
+        String path = "C:\\Users\\jolit\\OneDrive\\Ambiente de Trabalho\\Faculdade\\1.º Ano (UPT)\\2.º Semestre\\Programacao Orientada a Objetos (6 ECTS)\\eclipse-workspace\\Proj24E14B\\paineis.txt";
+        String pathAdm = "C:\\Users\\jolit\\OneDrive\\Ambiente de Trabalho\\Faculdade\\1.º Ano (UPT)\\2.º Semestre\\Programacao Orientada a Objetos (6 ECTS)\\eclipse-workspace\\Proj24E14B\\adms.txt";
         // String path = "C:\\Faculdade\\Projeto SI + POO\\Proj24E14B\\Proj24E14B - Incremento 1\\paineis.txt";
         // String pathAdm = "C:\\Faculdade\\Projeto SI + POO\\Proj24E14B\\Proj24E14B - Incremento 1\\adms.txt";
 
@@ -155,7 +155,7 @@ public class MenuPrincipal {
         		} while(consumoUltimoMes < 0);
         		
         		do {
-        			System.out.println("Qual foi o valor da fatura paga nesse último mês?: ");
+        			System.out.println("Qual foi o valor da fatura paga no último mês?: ");
         			pagamentoUltimoMes = input.nextInt();
         			input.nextLine();
         		} while(pagamentoUltimoMes < 0);
