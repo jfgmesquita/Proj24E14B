@@ -24,10 +24,11 @@ public class MenuCliente {
                 System.out.println("Logado como: " + email);
 
                 do {
-                    System.out.println("Como podemos ajudar-te?\n"
+                    System.out.println("Como podemos ajudá-lo?\n"
                     				+ "1) Consultar dados dos painéis\n"
                     				+ "2) Fazer um orçamento para a instalação de painéis\n"
                     				+ "3) Consultar os meus orçamentos\n"
+                                    + "4) Comparar orçamentos\n"
                     				+ "0) Log out");
                     option = input.nextInt();
                     input.nextLine();
@@ -69,17 +70,24 @@ public class MenuCliente {
                         	
                         	System.out.println("\n********************\n");
                             break;
+
+                        case 4:
+                            gestor.compararOrcamentos(user.getUserId());
+
+                            System.out.println("\n********************\n");
+                            break;
                     }
 
                     do {
-                        System.out.println("Como podemos ajudar-te?\n"
+                        System.out.println("Como podemos ajudá-lo?\n"
                                 + "1) Consultar dados dos painéis\n"
                                 + "2) Fazer um orçamento para a instalação de painéis\n"
                                 + "3) Consultar os meus orçamentos\n"
+                                + "4) Comparar orçamentos\n"
                                 + "0) Log out");
                         option = input.nextInt();
                         input.nextLine();
-                    } while (option < 0 || option > 3);
+                    } while (option < 0 || option > 42);
                 }
             }
     	}

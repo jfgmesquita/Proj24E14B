@@ -176,7 +176,8 @@ public class Gerir {
     		if(user.getUserId().equals(userId)) {
     			if(user.getListaOrcamentos().size() == 0) {
     				System.out.println("Não há orçamentos registados!");
-    			} else {
+    			}
+                else {
     				System.out.println("Orçamentos:");
     				for(Orcamento orca : user.getListaOrcamentos()) {
     					System.out.println(orca.toString());
@@ -185,6 +186,42 @@ public class Gerir {
     			
     		}
     	}
+    }
+
+    public void compararOrcamentos(String userId)
+    {
+        for(Utilizador user : listaUtilizadores) {
+            if(user.getUserId().equals(userId)) {
+                if(user.getListaOrcamentos().size() == 0) {
+                    System.out.println("Não há orçamentos registados!");
+                }
+                else {
+                    double menorValorTotal = 999999999;
+                    double menorTempoTotalInstalacao = 999999999;
+                    double retornoMaisRapido = 999999999;
+                    String menorValorOrca = "";
+                    String menorTempoOrca = "";
+                    String maisRapidoOrca = "";
+                    for(Orcamento orca : user.getListaOrcamentos()) {
+                        if(orca.getValorTotal() < menorValorTotal) {
+                            menorValorTotal = orca.getValorTotal();
+                            menorValorOrca = orca.getDescricao(); 
+                        }
+                        if(orca.getTempoTotalInstalacao() < menorTempoTotalInstalacao) {
+                            menorTempoTotalInstalacao = orca.getTempoTotalInstalacao();
+                            menorTempoOrca = orca.getDescricao();
+                        }
+                        if(orca.getRetorno() < retornoMaisRapido) {
+                            retornoMaisRapido = orca.getRetorno();
+                            maisRapidoOrca = orca.getDescricao();
+                        }
+                    }
+                    System.out.println("Orçamento com menor valor total: " + menorValorOrca);
+                    System.out.println("Orçamento com menor tempo total de instalação: " + menorTempoOrca);
+                    System.out.println("Orçamento com retorno mais rápido: " + maisRapidoOrca);
+                }
+            }
+        }
     }
 
     /**

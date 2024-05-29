@@ -155,7 +155,7 @@ public class MenuPrincipal {
         		} while(consumoUltimoMes < 0);
         		
         		do {
-        			System.out.println("Qual foi o valor da fatura paga nesse último mês?: ");
+        			System.out.println("Qual foi o valor da fatura paga no último mês?: ");
         			pagamentoUltimoMes = input.nextInt();
         			input.nextLine();
         		} while(pagamentoUltimoMes < 0);
