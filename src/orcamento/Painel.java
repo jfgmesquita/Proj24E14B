@@ -10,16 +10,22 @@ public class Painel implements Serializable {
     private double precoUnitario; // por unidade
     private double tempoInstalacao; // por unidade
     private double producaoKwh; // kWh
+    private double medida; // m2
     
     public Painel() {
     }
 
-    public Painel(String marca, String modelo, double precoUnitario, double tempoInstalacao, double producaoKwh) {
+    public Painel(String marca, String modelo, double precoUnitario, double tempoInstalacao, double producaoKwh, double medida) {
         this.marca = marca;
         this.modelo = modelo;
         this.precoUnitario = precoUnitario;
         this.tempoInstalacao = tempoInstalacao;
         this.producaoKwh = producaoKwh;
+        this.medida = medida;
+    }
+
+    public double getMedida() {
+        return medida;
     }
 
     public String getMarca() {

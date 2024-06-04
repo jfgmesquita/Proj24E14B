@@ -98,9 +98,9 @@ public class Gerir {
     
     //Métodos do menu administrador
     
-    public void registarPainel(String marca, String modelo, double precoUnitario, double tempoInstalacao, double producaoKwh)
+    public void registarPainel(String marca, String modelo, double precoUnitario, double tempoInstalacao, double producaoKwh, double medida)
     {
-    	Painel newPainel = new Painel (marca, modelo, precoUnitario, tempoInstalacao, producaoKwh);
+    	Painel newPainel = new Painel (marca, modelo, precoUnitario, tempoInstalacao, producaoKwh, medida);
     	listaPaineis.add(newPainel);
     }
     
