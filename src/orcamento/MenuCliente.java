@@ -76,6 +76,10 @@ public class MenuCliente {
 
                             System.out.println("\n********************\n");
                             break;
+                        
+                        case 0:
+                            System.out.println("A sair da sua conta...");
+                            break;
                     }
 
                     do {
