@@ -23,6 +23,11 @@ public class Administrador extends Utilizador
 		this.isManager = isManager;
 		ultimaAlteracao = LocalDateTime.now();
 	}
+
+	public double getPagamentoUltimoMes()
+	{
+		return 0;
+	}
 	
 	public int getConsumoUltimoMes()
 	{

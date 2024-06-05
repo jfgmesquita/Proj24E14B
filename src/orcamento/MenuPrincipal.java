@@ -15,7 +15,9 @@ public class MenuPrincipal {
      * @param args
      */
     public static void main(String[] args) {
-		Gerir gestor = new Gerir();
+		System.out.println("Katchau");
+
+        Gerir gestor = new Gerir();
         
         Scanner input = new Scanner(System.in);
         
@@ -23,10 +25,10 @@ public class MenuPrincipal {
         String email = "";
         String password;
         
-        String path = "C:\\Users\\jolit\\OneDrive\\Ambiente de Trabalho\\Faculdade\\1.º Ano (UPT)\\2.º Semestre\\Programacao Orientada a Objetos (6 ECTS)\\eclipse-workspace\\Proj24E14B\\paineis.txt";
-        String pathAdm = "C:\\Users\\jolit\\OneDrive\\Ambiente de Trabalho\\Faculdade\\1.º Ano (UPT)\\2.º Semestre\\Programacao Orientada a Objetos (6 ECTS)\\eclipse-workspace\\Proj24E14B\\adms.txt";
-        // String path = "C:\\Faculdade\\Projeto SI + POO\\Proj24E14B\\Proj24E14B - Incremento 1\\paineis.txt";
-        // String pathAdm = "C:\\Faculdade\\Projeto SI + POO\\Proj24E14B\\Proj24E14B - Incremento 1\\adms.txt";
+        // String path = "C:\\Users\\jolit\\OneDrive\\Ambiente de Trabalho\\Faculdade\\1.º Ano (UPT)\\2.º Semestre\\Programacao Orientada a Objetos (6 ECTS)\\eclipse-workspace\\Proj24E14B\\paineis.txt";
+        // String pathAdm = "C:\\Users\\jolit\\OneDrive\\Ambiente de Trabalho\\Faculdade\\1.º Ano (UPT)\\2.º Semestre\\Programacao Orientada a Objetos (6 ECTS)\\eclipse-workspace\\Proj24E14B\\adms.txt";
+        String path = "C:\\Faculdade\\Projeto SI + POO\\Proj24E14B\\Proj24E14B - Incremento 1\\paineis.txt";
+        String pathAdm = "C:\\Faculdade\\Projeto SI + POO\\Proj24E14B\\Proj24E14B - Incremento 1\\adms.txt";
 
         //Leitura de admins
         //----------------------------------------------------------------------------------------------------
@@ -60,14 +62,15 @@ public class MenuPrincipal {
         	String line = br.readLine();
         	line = br.readLine();
         	while(line != null) {
-        		String[] vetor = line.split(",");
+        		String[]vetor = line.split(",");
         		String marca = vetor[0];
         		String modelo = vetor[1];
         		double precoUnitario = Double.parseDouble(vetor[2]);
         		double tempoInstalacao = Double.parseDouble(vetor[3]);
         		double producaoKwh = Double.parseDouble(vetor[4]);
+        		double medida = Double.parseDouble(vetor[5]);
         		
-        		Painel newPainel = new Painel(marca, modelo, precoUnitario, tempoInstalacao, producaoKwh);
+        		Painel newPainel = new Painel(marca, modelo, precoUnitario, tempoInstalacao, producaoKwh, medida);
         		gestor.getListaPaineis().add(newPainel);
         		
         		line = br.readLine();

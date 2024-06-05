@@ -58,13 +58,29 @@ public class MenuAdministrador {
 		        				producaoKwh = input.nextDouble();
 		        				input.nextLine();
 		        			} while(producaoKwh < 0);
+
+							double medida;
+							do{
+								System.out.print("Medida(Em m2): ");
+								medida = input.nextDouble();
+								input.nextLine();
+							} while(medida < 0);
 		        			
-		        			gestor.registarPainel(marca, modelo, precoUnitario, tempoInstalacao, producaoKwh);
+		        			
+		        			for(Painel painel : gestor.getListaPaineis()) {
+		        				if(painel.getModelo().equals(modelo)) {
+		        					System.out.println("Já existe um painel com esse modelo!\n"
+		        										+ "********************\n");
+		        					break;
+		        				}
+							}
+		        			
+		        			gestor.registarPainel(marca, modelo, precoUnitario, tempoInstalacao, producaoKwh, medida);
 		        			
 		        			System.out.println("Painel adicionado!\n"
 		        								+ "********************\n");
 		        			break;
-		        			
+							
 		        		case 2:
 						gestor.mostrarPaineis();
 
