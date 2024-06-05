@@ -18,9 +18,7 @@ public class MenuPrincipal {
      * @param args
      */
     public static void main(String[] args) {
-		System.out.println("Katchau");
-
-        Gerir gestor = new Gerir();
+		Gerir gestor = new Gerir();
         
         Scanner input = new Scanner(System.in);
         
