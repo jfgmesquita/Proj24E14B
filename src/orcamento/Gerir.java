@@ -3,6 +3,7 @@
  */
 package orcamento;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
@@ -141,6 +142,7 @@ public class Gerir {
     			double producao = 0;
     			double preco = 0;
     			double tempo = 0;
+                double medida = 0;
     			
     			for(Painel painel : listaPaineis) {
     				if(listaPaineis.indexOf(painel) == (panelOption - 1)) {
@@ -148,21 +150,27 @@ public class Gerir {
     					producao = (double) painel.getProducao();
     					preco = painel.getPrecoUnitario();
     					tempo = painel.getTempoInstalacao();
+                        medida = painel.getMedida();
     				}
     			}
     			
                 // cálculo do número de painéis necessários, valor total e tempo total de instalação
     			double prodMensal = producao * 30;
-    			double numeroPaineis = userConsumo / prodMensal;
+    			int numeroPaineis = (int) Math.ceil(userConsumo / prodMensal);
     			double valorTotal = numeroPaineis * preco;
-    			double tempoTotalInstalacao = numeroPaineis * tempo;
+    			int tempoTotalInstalacao = (int) Math.ceil(numeroPaineis * tempo);
 
                 // cálculo do tempo até ao retorno do investimento
-                double energiaSolar = numeroPaineis * prodMensal * (1 - 0.2); // 20% de perdas
-                double economiaMensal = userConsumo - energiaSolar;
-                double retorno = valorTotal / economiaMensal;
+                // double energiaSolar = numeroPaineis * prodMensal * (1 - 0.2); // 20% de perdas
+                // double economiaMensal = userConsumo - energiaSolar;
+                // double retorno = valorTotal / economiaMensal;
+                int retorno = (int) Math.ceil(valorTotal / (userConsumo * 0.2)); // 20% de perdas
 
-    			Orcamento orcamento = new Orcamento(descricao, modelo, valorTotal, tempoTotalInstalacao, numeroPaineis, retorno);
+                // cálculo da ocupação do telhado
+                System.out.println(numeroPaineis + " - " + medida);
+                double ocupacao = numeroPaineis * medida;
+
+    			Orcamento orcamento = new Orcamento(descricao, modelo, valorTotal, tempoTotalInstalacao, numeroPaineis, retorno, ocupacao);
     			user.getListaOrcamentos().add(orcamento);
     			
     			System.out.println("\n" + user.getListaOrcamentos().getLast());
@@ -199,9 +207,11 @@ public class Gerir {
                     double menorValorTotal = 999999999;
                     double menorTempoTotalInstalacao = 999999999;
                     double retornoMaisRapido = 999999999;
+                    double menorValorOcupacao = 999999999;
                     String menorValorOrca = "";
                     String menorTempoOrca = "";
                     String maisRapidoOrca = "";
+                    String menosEspacoOrca = "";
                     for(Orcamento orca : user.getListaOrcamentos()) {
                         if(orca.getValorTotal() < menorValorTotal) {
                             menorValorTotal = orca.getValorTotal();
@@ -215,10 +225,16 @@ public class Gerir {
                             retornoMaisRapido = orca.getRetorno();
                             maisRapidoOrca = orca.getDescricao();
                         }
+                        if(orca.getOcupacao() < menorValorOcupacao) {
+                            menorValorOcupacao = orca.getOcupacao();
+                            menosEspacoOrca = orca.getDescricao();
+                        }
                     }
-                    System.out.println("Orçamento com menor valor total: " + menorValorOrca);
-                    System.out.println("Orçamento com menor tempo total de instalação: " + menorTempoOrca);
-                    System.out.println("Orçamento com retorno mais rápido: " + maisRapidoOrca);
+                    DecimalFormat df = new DecimalFormat("#.##");
+                    System.out.println("Orçamento com menor valor total: " + menorValorOrca + " (" + df.format(menorValorTotal) + " Euros)");
+                    System.out.println("Orçamento com menor tempo total de instalação: " + menorTempoOrca + " (" + menorTempoTotalInstalacao + " horas)");
+                    System.out.println("Orçamento com retorno mais rápido: " + maisRapidoOrca + " (" + retornoMaisRapido + " meses)");
+                    System.out.println("Orçamento com menos espaço ocupado: " + menosEspacoOrca + " (" + df.format(menorValorOcupacao) + " m²)");
                 }
             }
         }

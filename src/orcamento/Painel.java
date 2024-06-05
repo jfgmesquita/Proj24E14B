@@ -62,7 +62,7 @@ public class Painel implements Serializable {
 	@Override
     public String toString() {
         return modelo + "(" + marca + ") / " + precoUnitario + " Euros / "
-                + tempoInstalacao + " horas para instalação / produz " + producaoKwh + " kWh.";
+                + tempoInstalacao + " horas para instalação / Produz " + producaoKwh + " kWh " + " / Ocupa " + medida + " m²";
     }
 
 }
