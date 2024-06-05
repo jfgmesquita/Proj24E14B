@@ -137,6 +137,7 @@ public class Gerir {
     {
     	for(Utilizador user : listaUtilizadores) {
     		if(user.getUserId().equals(userId) && user.getClass().getSimpleName().equals("Cliente")) {
+    			double userValorPago = user.getPagamentoUltimoMes();
     			double userConsumo = (double) user.getConsumoUltimoMes();
     			String modelo = "";
     			double producao = 0;
@@ -154,17 +155,13 @@ public class Gerir {
     				}
     			}
     			
-                // cálculo do número de painéis necessários, valor total e tempo total de instalação
+                // cálculo do número de painéis necessários, valor total, tempo total de instalação e tempo até ao retorno do investimento
     			double prodMensal = producao * 30;
     			int numeroPaineis = (int) Math.ceil(userConsumo / prodMensal);
     			double valorTotal = numeroPaineis * preco;
     			int tempoTotalInstalacao = (int) Math.ceil(numeroPaineis * tempo);
-
-                // cálculo do tempo até ao retorno do investimento
-                // double energiaSolar = numeroPaineis * prodMensal * (1 - 0.2); // 20% de perdas
-                // double economiaMensal = userConsumo - energiaSolar;
-                // double retorno = valorTotal / economiaMensal;
-                int retorno = (int) Math.ceil(valorTotal / (userConsumo * 0.2)); // 20% de perdas
+                int retorno = (int) Math.ceil(valorTotal / userValorPago);
+                
 
                 // cálculo da ocupação do telhado
                 System.out.println(numeroPaineis + " - " + medida);
