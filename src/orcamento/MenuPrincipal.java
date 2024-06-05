@@ -25,8 +25,8 @@ public class MenuPrincipal {
         String email = "";
         String password;
         
-        String path = "C:\\Users\\jolit\\OneDrive\\Ambiente de Trabalho\\Faculdade\\1.º Ano (UPT)\\2.º Semestre\\Programacao Orientada a Objetos (6 ECTS)\\eclipse-workspace\\Proj24E14B\\paineis.txt";
-        String pathAdm = "C:\\Users\\jolit\\OneDrive\\Ambiente de Trabalho\\Faculdade\\1.º Ano (UPT)\\2.º Semestre\\Programacao Orientada a Objetos (6 ECTS)\\eclipse-workspace\\Proj24E14B\\adms.txt";
+        String path = "C:\\Users\\jolit\\OneDrive\\Ambiente de Trabalho\\Faculdade\\1o Ano\\2o Semestre\\Programacao Orientada a Objetos (6 ECTS)\\eclipse-workspace\\Proj24E14B\\paineis.txt";
+        String pathAdm = "C:\\Users\\jolit\\OneDrive\\Ambiente de Trabalho\\Faculdade\\1o Ano\\2o Semestre\\Programacao Orientada a Objetos (6 ECTS)\\eclipse-workspace\\Proj24E14B\\adms.txt";
         //String path = "C:\\Faculdade\\Projeto SI + POO\\Proj24E14B\\Proj24E14B - Incremento 1\\paineis.txt";
         //String pathAdm = "C:\\Faculdade\\Projeto SI + POO\\Proj24E14B\\Proj24E14B - Incremento 1\\adms.txt";
 
