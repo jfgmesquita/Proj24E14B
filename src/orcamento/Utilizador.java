@@ -103,6 +103,7 @@ public abstract class Utilizador
         return email;
     }
     
+    abstract public double getPagamentoUltimoMes();
     abstract public int getConsumoUltimoMes();
     abstract public ArrayList<Orcamento> getListaOrcamentos();
 }

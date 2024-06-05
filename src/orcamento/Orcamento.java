@@ -1,12 +1,15 @@
 package orcamento;
 
+import java.text.DecimalFormat;
+
 public class Orcamento {
     private String descricao;
     private String modelo;
     private double valorTotal;
-    private double tempoTotalInstalacao;
+    private int tempoTotalInstalacao;
     private int numPaineis;
-    private double retorno;
+    private int retorno;
+    private double ocupacao;
 
     /**
 	 * @param descricao
@@ -14,13 +17,14 @@ public class Orcamento {
 	 * @param valorTotal
 	 * @param tempoTotalInstalacao
 	 */
-	public Orcamento(String descricao, String modelo, double valorTotal, double tempoTotalInstalacao, double numPaineis, double retorno) {
+	public Orcamento(String descricao, String modelo, double valorTotal, int tempoTotalInstalacao, int numPaineis, int retorno, double ocupacao) {
 		this.descricao = descricao;
 		this.modelo = modelo;
 		this.valorTotal = valorTotal;
-		this.tempoTotalInstalacao = (int) Math.ceil(tempoTotalInstalacao);
-		this.numPaineis = (int) Math.ceil(numPaineis);
-        this.retorno = (int) Math.ceil(retorno);
+		this.tempoTotalInstalacao = tempoTotalInstalacao;
+		this.numPaineis = numPaineis;
+        this.retorno = retorno;
+        this.ocupacao = ocupacao;
     }
 	
     /*
@@ -65,13 +69,21 @@ public class Orcamento {
         return retorno;
     }
 
+    /**
+     * @return a ocupação dos painéis
+     */
+    public double getOcupacao() {
+        return ocupacao;
+    }
+
     @Override
     public String toString() {
-    	String StValorTotal = String.format("%.2f", valorTotal);
+        DecimalFormat df = new DecimalFormat("#.##");
     	
         return descricao + "\nSerão instalados " + numPaineis + " painéis " + modelo + "\n"
-        		+ "Valor Total: " + StValorTotal + " euros\n"
+        		+ "Valor Total: " + df.format(valorTotal) + " euros\n"
 				+ "Tempo de instalação total: " + tempoTotalInstalacao + " horas\n"
-                + "Tempo até haver retorno do investimento: " + retorno + " meses\n";
+                + "Tempo até haver retorno do investimento: " + retorno + " meses\n"
+                + "Ocupação dos painéis: " + df.format(ocupacao) + " m²\n";
     }
 }
