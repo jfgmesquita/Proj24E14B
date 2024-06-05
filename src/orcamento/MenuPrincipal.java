@@ -1,6 +1,3 @@
-/**
- *
- */
 package orcamento;
 
 import java.io.BufferedReader;
