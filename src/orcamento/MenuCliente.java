@@ -29,10 +29,11 @@ public class MenuCliente {
                     				+ "2) Fazer um orçamento para a instalação de painéis\n"
                     				+ "3) Consultar os meus orçamentos\n"
                                     + "4) Comparar orçamentos\n"
+                                    + "5) Consultar informação de apoio ao meio ambiente\n"
                     				+ "0) Log out");
                     option = input.nextInt();
                     input.nextLine();
-                } while (option < 0 || option > 3);
+                } while (option < 0 || option > 5);
 
                 while(option != 0) {
                     switch(option) {
@@ -76,6 +77,27 @@ public class MenuCliente {
 
                             System.out.println("\n********************\n");
                             break;
+                        case 5:
+                        	int escolha = 0;
+                        	int i;
+                        	if(user.getListaOrcamentos().size() == 0) {
+                                System.out.println("Não há orçamentos registados!");
+                                break;
+                            }
+                            else { 
+                            	do {
+                            	i = 1;
+                            	System.out.println("Selecione o orçamento: ");
+                            	System.out.println("********************");
+                            	for(Orcamento orca : user.getListaOrcamentos()) {
+                            		System.out.println("Orçamento Numero(" + i + ")");
+                            		System.out.println(orca.toString() + "********************");
+                            		i += 1;
+                            	}
+                            	escolha = input.nextInt();
+                            } while (escolha < 1 || escolha > user.getListaOrcamentos().size()); }
+                        	gestor.informacaoAmbiente(user.getListaOrcamentos().get(escolha-1));
+                        	break;
                         
                         case 0:
                             System.out.println("A sair da sua conta...");
@@ -88,10 +110,11 @@ public class MenuCliente {
                                 + "2) Fazer um orçamento para a instalação de painéis\n"
                                 + "3) Consultar os meus orçamentos\n"
                                 + "4) Comparar orçamentos\n"
+                                + "5) Consultar informação de apoio ao meio ambiente\n"
                                 + "0) Log out");
                         option = input.nextInt();
                         input.nextLine();
-                    } while (option < 0 || option > 42);
+                    } while (option < 0 || option > 5);
                 }
             }
     	}

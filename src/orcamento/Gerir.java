@@ -236,7 +236,28 @@ public class Gerir {
             }
         }
     }
-
+    
+    public void informacaoAmbiente(Orcamento orca) {
+    	double producaoKwh = 0;
+    	double estimativaCo2;
+    	double estimativaAnual;
+    	int estimativaArvores;
+ 
+    	for(Painel painel : listaPaineis) {
+    		if(painel.getModelo().equals(orca.getModelo())) {
+    			producaoKwh = painel.getProducao();
+            }
+        }
+   
+    //A média de Carbono emitido por Kwh de energia em portugal é 130 gramas.
+    	estimativaCo2 = (producaoKwh * orca.getNumPaineis()) * 130;
+    	estimativaAnual = (estimativaCo2 * 24 * 365)/1000; 	
+    	estimativaArvores = (int) Math.ceil(estimativaAnual/22);
+    	
+    	System.out.println("Orçamento: " + orca.getDescricao());
+    	System.out.println("Ao final de um ano, você contribuirá ao meio ambiente com menos " 
+    	+ Math.round(estimativaAnual) + "kg de carbono emitidos, equivalente a " + estimativaArvores + " arvores plantadas.");
+    }
     /**
      * @return the listaUtilizadores
      */
