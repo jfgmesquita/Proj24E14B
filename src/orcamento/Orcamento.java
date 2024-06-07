@@ -16,6 +16,9 @@ public class Orcamento {
 	 * @param modelo
 	 * @param valorTotal
 	 * @param tempoTotalInstalacao
+     * @param numPaineis
+     * @param retorno
+     * @param ocupacao
 	 */
 	public Orcamento(String descricao, String modelo, double valorTotal, int tempoTotalInstalacao, int numPaineis, int retorno, double ocupacao) {
 		this.descricao = descricao;

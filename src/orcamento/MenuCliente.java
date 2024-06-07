@@ -32,7 +32,7 @@ public class MenuCliente {
                     				+ "0) Log out");
                     option = input.nextInt();
                     input.nextLine();
-                } while (option < 0 || option > 3);
+                } while (option < 0 || option > 4);
 
                 while(option != 0) {
                     switch(option) {
@@ -76,7 +76,7 @@ public class MenuCliente {
 
                             System.out.println("\n********************\n");
                             break;
-                        
+
                         case 0:
                             System.out.println("A sair da sua conta...");
                             break;
@@ -91,7 +91,7 @@ public class MenuCliente {
                                 + "0) Log out");
                         option = input.nextInt();
                         input.nextLine();
-                    } while (option < 0 || option > 42);
+                    } while (option < 0 || option > 4);
                 }
             }
     	}
