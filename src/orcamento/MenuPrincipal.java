@@ -60,8 +60,10 @@ public class MenuPrincipal {
 
         			
         			do {
-        				System.out.print("Senha ('Cancelar' para cancelar o login): ");
-        				password = input.nextLine();
+
+        				System.out.print("Senha('Cancelar' para cancelar o login): ");
+        				password = gestor.readPassword();
+
 
 						if(password.equalsIgnoreCase("Cancelar")) {
 							gestor.cancelarOperacao();;
@@ -113,7 +115,7 @@ public class MenuPrincipal {
         					+ "-Pelo menos 1 letra minúscula.\n"
         					+ "-Pelo menos 1 número\n"
         					+ "-Pelo menos 1 carácter especial (@#$%&)\n");
-        			password = input.nextLine();
+        			password = gestor.readPassword();
 
 					if(password.equalsIgnoreCase("Cancelar")) {
 						gestor.cancelarOperacao();

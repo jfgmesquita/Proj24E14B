@@ -5,12 +5,17 @@ package orcamento;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.Console;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.regex.Pattern;
+
+import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+
 import java.util.regex.Matcher;
 import org.apache.commons.validator.routines.EmailValidator;
 
@@ -460,5 +465,23 @@ public class Gerir {
             System.out.println("Error: " + e.getMessage());
         }
     }
-}
+
+    public String readPassword() {
+        Console console = System.console();
+        if (console == null) {
+            return readPasswordSwing();
+        }
+        char[] passwordArray = console.readPassword();
+        return new String(passwordArray);
+    }
+
+    public String readPasswordSwing() {
+        JPasswordField pf = new JPasswordField();
+        int okCxl = JOptionPane.showConfirmDialog(null, pf, "Enter Password", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+        if (okCxl == JOptionPane.OK_OPTION) {
+            return new String(pf.getPassword());
+        }
+        return null;
+    }
+}//fim da classe
 
