@@ -433,6 +433,14 @@ public class Gerir {
                 boolean isManager = Boolean.parseBoolean(vetor[4]);
                 
                 Administrador newAdmin = new Administrador(nome,email,password,userId,isManager);
+=======
+                String nome = vetor[0];
+                email = vetor[1];
+                password = vetor[2];
+                boolean isManager = Boolean.parseBoolean(vetor[3]);
+                
+                Administrador newAdmin = new Administrador(nome,email,password,isManager);
+>>>>>>> Stashed changes
                 getListaUtilizadores().add(newAdmin);
                 
                 line = br.readLine();
@@ -459,6 +467,15 @@ public class Gerir {
                 int pagamentoUltimoMes = Integer.parseInt(vetor[5]);
 
                 Cliente newCliente = new Cliente(nome, email, password, userId, consumoUltimoMes, pagamentoUltimoMes);
+=======
+                String nome = vetor[0];
+                email = vetor[1];
+                password = vetor[2];
+                int consumoUltimoMes = Integer.parseInt(vetor[3]);
+                int pagamentoUltimoMes = Integer.parseInt(vetor[4]);
+
+                Cliente newCliente = new Cliente(nome, email, password, consumoUltimoMes, pagamentoUltimoMes);
+>>>>>>> Stashed changes
                 getListaUtilizadores().add(newCliente);
 
                 line = br.readLine();
