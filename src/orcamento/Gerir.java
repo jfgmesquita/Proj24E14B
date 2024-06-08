@@ -99,68 +99,6 @@ public class Gerir {
             e.printStackTrace();
         }
     }
-
-    public void escreverUtilizadores(Utilizador newUtilizador)
-    {
-        try {
-            FileWriter fileWriter;
-            String saida = "";
-            if (newUtilizador.getClass().getSimpleName().equals("Cliente")) {
-
-                fileWriter = new FileWriter("clientes.txt", true);
-                Cliente cli = (Cliente) newUtilizador;
-                saida = cli.getNome() + "," + cli.getEmail() + "," + cli.getPassword() + "," + cli.getConsumoUltimoMes() + "," + (int)cli.getPagamentoUltimoMes();
-            
-            } else if(newUtilizador.getClass().getSimpleName().equals("Administrador")) {
-
-                fileWriter = new FileWriter("adms.txt", true);
-                Administrador adm = (Administrador) newUtilizador;
-                saida = adm.getNome() + "," + adm.getEmail() + "," + adm.getPassword() + "," + adm.getIsManager() + "\n";
-            } else {
-
-                fileWriter = new FileWriter("utilizadores.txt", true);
-            
-            }
-        
-            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-            bufferedWriter.write(saida);
-            bufferedWriter.newLine();
-            bufferedWriter.close();
-        } catch (IOException e) {
-            System.out.println("Erro ao escrever no arquivo");
-            e.printStackTrace();
-        }
-    }
-
-    public void escreverOrcamentos(String userId, Orcamento orca)
-    {
-        try {
-            FileWriter fileWriter = new FileWriter("orcamentos.txt", true);
-            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-            String saida = userId + "," + orca.getDescricao() + "," + orca.getModelo() + "," + orca.getValorTotal() + "," + (int) orca.getTempoTotalInstalacao() + "," + orca.getNumPaineis() + "," + (int) orca.getRetorno() + "," + orca.getOcupacao();
-            bufferedWriter.write(saida);
-            bufferedWriter.newLine();
-            bufferedWriter.close();
-        } catch (IOException e) {
-            System.out.println("Erro ao escrever no arquivo");
-            e.printStackTrace();
-        }
-    }
-
-    public void escreverPaineis(Painel newPainel)
-    {
-        try {
-            FileWriter fileWriter = new FileWriter("paineis.txt", true);
-            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-            String saida = newPainel.getMarca() + "," + newPainel.getModelo() + "," + newPainel.getPrecoUnitario() + "," + newPainel.getTempoInstalacao() + "," + newPainel.getProducao() + "," + newPainel.getMedida();
-            bufferedWriter.write(saida);
-            bufferedWriter.newLine();
-            bufferedWriter.close();
-        } catch (IOException e) {
-            System.out.println("Erro ao escrever no arquivo");
-            e.printStackTrace();
-        }
-    }
     
     public int pesquisarEmail(String email)
     {
@@ -318,9 +256,9 @@ public class Gerir {
     				System.out.println("Não há orçamentos registados!");
     			}
                 else {
-    				System.out.println("\nOrçamentos:");
+    				System.out.println("Orçamentos:");
     				for(Orcamento orca : user.getListaOrcamentos()) {
-    					System.out.println(orca.toString());
+    					System.out.println("\n" + orca.toString());
                         informacaoAmbiente(orca);
     				}    				
     			}
@@ -425,7 +363,6 @@ public class Gerir {
             line = br.readLine();
             while(line != null) {
                 String[] vetor = line.split(",");
-<<<<<<< Updated upstream
                 String userId = vetor[0];
                 String nome = vetor[1];
                 email = vetor[2];
@@ -433,14 +370,6 @@ public class Gerir {
                 boolean isManager = Boolean.parseBoolean(vetor[4]);
                 
                 Administrador newAdmin = new Administrador(nome,email,password,userId,isManager);
-=======
-                String nome = vetor[0];
-                email = vetor[1];
-                password = vetor[2];
-                boolean isManager = Boolean.parseBoolean(vetor[3]);
-                
-                Administrador newAdmin = new Administrador(nome,email,password,isManager);
->>>>>>> Stashed changes
                 getListaUtilizadores().add(newAdmin);
                 
                 line = br.readLine();
@@ -458,7 +387,6 @@ public class Gerir {
             line = br.readLine();
             while(line != null) {
                 String[] vetor = line.split(",");
-<<<<<<< Updated upstream
                 String userId = vetor[0];
                 String nome = vetor[1];
                 email = vetor[2];
@@ -467,15 +395,6 @@ public class Gerir {
                 int pagamentoUltimoMes = Integer.parseInt(vetor[5]);
 
                 Cliente newCliente = new Cliente(nome, email, password, userId, consumoUltimoMes, pagamentoUltimoMes);
-=======
-                String nome = vetor[0];
-                email = vetor[1];
-                password = vetor[2];
-                int consumoUltimoMes = Integer.parseInt(vetor[3]);
-                int pagamentoUltimoMes = Integer.parseInt(vetor[4]);
-
-                Cliente newCliente = new Cliente(nome, email, password, consumoUltimoMes, pagamentoUltimoMes);
->>>>>>> Stashed changes
                 getListaUtilizadores().add(newCliente);
 
                 line = br.readLine();

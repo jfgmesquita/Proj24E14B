@@ -1,8 +1,2 @@
 nome,email,password,consumoUltimoMes,pagamentoUltimoMes
-<<<<<<< Updated upstream
-y87IY9k,Divaldo Dias,divaldo@gmail.com,Divaldo$2005,500,90
-=======
-Thomas Ramírez,thomasramirez@gmail.com,Thomas$2004,404,79
-Thiago Rocha,thiagorocha@gmail.com,Thiago$2004,300,60
-Divaldo Dias,divaldo@gmail.com,Divaldo$2005,500,90
->>>>>>> Stashed changes
+U69tFz5,Thiago Rocha,thiagorocha@gmail.com,Thiago$2004,500,90

@@ -1,9 +1,2 @@
 userId,descricao,modelo,valorTotal,tempoTotalInstalacao,numPaineis,retorno,ocupacao
-<<<<<<< Updated upstream
-y87IY9k,angola,JKM400M-72H-V,1368.0,23,9,16,18.108
-y87IY9k,portugal,DCT-EI-2003,1566.0,32,9,18,19.349999999999998
-y87IY9k,brasil,TSM-DE17M(II) 400W,1494.0,18,9,17,18.017999999999997
-=======
-T44T4is,casa angola,CS3U-400P,1458.0,32,9,17,17.856
-T44T4is,portugal,JAM72S20-405/MR,1530.0,36,9,17,18.072
->>>>>>> Stashed changes
+U69tFz5,brasil,DCT-EI-2003,1566.0,32,9,18,19.349999999999998
