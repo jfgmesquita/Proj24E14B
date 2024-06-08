@@ -50,7 +50,7 @@ public class MenuPrincipal {
         				System.out.print("Email('Cancelar' para cancelar o login): ");
         				email = input.nextLine();
 
-						if(email.equals("Cancelar")) {
+						if(email.equalsIgnoreCase("Cancelar")) {
 							gestor.cancelarOperacao();;
 							break;
 						}
@@ -61,7 +61,7 @@ public class MenuPrincipal {
         				System.out.print("Senha('Cancelar' para cancelar o login): ");
         				password = gestor.readPassword();
 
-						if(password.equals("Cancelar")) {
+						if(password.equalsIgnoreCase("Cancelar")) {
 							gestor.cancelarOperacao();;
 							break;
 						}
@@ -88,7 +88,7 @@ public class MenuPrincipal {
         			System.out.println("Nome('Cancelar' para cancelar o registo): ");
         			nome = input.nextLine();
 
-					if(nome.equals("Cancelar")) {
+					if(nome.equalsIgnoreCase("Cancelar")) {
 						gestor.cancelarOperacao();
 						break;
 					}
@@ -98,7 +98,7 @@ public class MenuPrincipal {
         			System.out.println("Email('Cancelar' para cancelar o registo): ");
         			email = input.nextLine();
 
-					if(email.equals("Cancelar")) {
+					if(email.equalsIgnoreCase("Cancelar")) {
 						gestor.cancelarOperacao();
 						break;
 					}
@@ -113,7 +113,7 @@ public class MenuPrincipal {
         					+ "-Pelo menos 1 carácter especial (@#$%&)\n");
         			password = gestor.readPassword();
 
-					if(password.equals("Cancelar")) {
+					if(password.equalsIgnoreCase("Cancelar")) {
 						gestor.cancelarOperacao();
 						break;
 					}
