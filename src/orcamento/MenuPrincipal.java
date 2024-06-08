@@ -69,7 +69,7 @@ public class MenuPrincipal {
 							gestor.cancelarOperacao();;
 							break;
 						}
-        			} while(password.isEmpty()); //gestor.validarSenha(password)
+        			} while(password.isEmpty());
 
         			
         			tipoUser = gestor.fazerLogin(email, password);
