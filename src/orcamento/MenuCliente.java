@@ -21,7 +21,7 @@ public class MenuCliente {
 
         for(Utilizador user:gestor.getListaUtilizadores()) {
             if(user.getEmail().equals(email)) {
-                System.out.println("Logado como: " + email);
+                System.out.println("Logado como: " + email + "ID: " + user.getUserId());
 
                 do {
                     System.out.println("Como podemos ajudá-lo?\n"

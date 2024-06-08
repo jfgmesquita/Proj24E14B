@@ -24,10 +24,19 @@ public abstract class Utilizador
      */
     public Utilizador(String nome, String email, String password)
     {
+
         this.nome = nome;
         this.email = email;
         this.password = password;
         userId = gerarId();
+    }
+
+    public Utilizador(String nome, String email, String password, String userId)
+    {
+        this.nome = nome;
+        this.email = email;
+        this.password = password;
+        this.userId = userId;
     }
 
     public String gerarId()

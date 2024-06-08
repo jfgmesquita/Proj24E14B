@@ -3,6 +3,11 @@
  */
 package orcamento;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.regex.Pattern;
@@ -24,9 +29,75 @@ public class Gerir {
         listaPaineis = new ArrayList<>();
     }
 
+    /**
+     * @param newUtilizador
+     */
     public void inserirUtilizador(Utilizador newUtilizador)
     {
         listaUtilizadores.add(newUtilizador);
+        escreverUtilizadores(newUtilizador);
+    }
+
+    public void escreverUtilizadores(Utilizador newUtilizador)
+    {
+        try {
+            FileWriter fileWriter;
+            String saida = "";
+            if (newUtilizador.getClass().getSimpleName().equals("Cliente")) {
+
+                fileWriter = new FileWriter("clientes.txt", true);
+                Cliente cli = (Cliente) newUtilizador;
+                saida = cli.getUserId() + "," + cli.getNome() + "," + cli.getEmail() + "," + cli.getPassword() + "," + cli.getConsumoUltimoMes() + "," + (int)cli.getPagamentoUltimoMes();
+            
+            } else if(newUtilizador.getClass().getSimpleName().equals("Administrador")) {
+
+                fileWriter = new FileWriter("adms.txt", true);
+                Administrador adm = (Administrador) newUtilizador;
+                saida = adm.getUserId() + "," + adm.getNome() + "," + adm.getEmail() + "," + adm.getPassword() + "," + adm.getIsManager() + "\n";
+            } else {
+
+                fileWriter = new FileWriter("utilizadores.txt", true);
+            
+            }
+        
+            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+            bufferedWriter.write(saida);
+            bufferedWriter.newLine();
+            bufferedWriter.close();
+        } catch (IOException e) {
+            System.out.println("Erro ao escrever no arquivo");
+            e.printStackTrace();
+        }
+    }
+
+    public void escreverOrcamentos(String userId, Orcamento orca)
+    {
+        try {
+            FileWriter fileWriter = new FileWriter("orcamentos.txt", true);
+            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+            String saida = userId + "," + orca.getDescricao() + "," + orca.getModelo() + "," + orca.getValorTotal() + "," + (int) orca.getTempoTotalInstalacao() + "," + orca.getNumPaineis() + "," + (int) orca.getRetorno() + "," + orca.getOcupacao();
+            bufferedWriter.write(saida);
+            bufferedWriter.newLine();
+            bufferedWriter.close();
+        } catch (IOException e) {
+            System.out.println("Erro ao escrever no arquivo");
+            e.printStackTrace();
+        }
+    }
+
+    public void escreverPaineis(Painel newPainel)
+    {
+        try {
+            FileWriter fileWriter = new FileWriter("paineis.txt", true);
+            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+            String saida = newPainel.getMarca() + "," + newPainel.getModelo() + "," + newPainel.getPrecoUnitario() + "," + newPainel.getTempoInstalacao() + "," + newPainel.getProducao() + "," + newPainel.getMedida();
+            bufferedWriter.write(saida);
+            bufferedWriter.newLine();
+            bufferedWriter.close();
+        } catch (IOException e) {
+            System.out.println("Erro ao escrever no arquivo");
+            e.printStackTrace();
+        }
     }
     
     public int pesquisarEmail(String email)
@@ -103,6 +174,8 @@ public class Gerir {
     {
     	Painel newPainel = new Painel (marca, modelo, precoUnitario, tempoInstalacao, producaoKwh, medida);
     	listaPaineis.add(newPainel);
+
+        escreverPaineis(newPainel);
     }
     
     public void alterarPrecoUnitario(String modelo, double precoUnitario)
@@ -164,11 +237,11 @@ public class Gerir {
                 
 
                 // cálculo da ocupação do telhado
-                System.out.println(numeroPaineis + " - " + medida);
                 double ocupacao = numeroPaineis * medida;
 
     			Orcamento orcamento = new Orcamento(descricao, modelo, valorTotal, tempoTotalInstalacao, numeroPaineis, retorno, ocupacao);
     			user.getListaOrcamentos().add(orcamento);
+                escreverOrcamentos(userId, orcamento);
     			
     			System.out.println("\n" + user.getListaOrcamentos().getLast());
     		}
@@ -183,7 +256,7 @@ public class Gerir {
     				System.out.println("Não há orçamentos registados!");
     			}
                 else {
-    				System.out.println("Orçamentos:");
+    				System.out.println("\nOrçamentos:");
     				for(Orcamento orca : user.getListaOrcamentos()) {
     					System.out.println(orca.toString());
                         informacaoAmbiente(orca);
@@ -271,4 +344,121 @@ public class Gerir {
     public ArrayList<Painel> getListaPaineis() {
         return listaPaineis;
     }
+
+    public void cancelarOperacao() {
+        MenuPrincipal.main(null);
+    }
+
+    public void lerFicheiros(String path, String pathAdm, String pathClientes, String pathOrcamentos)
+    {
+
+        String email;
+        String password;
+        //Leitura de admins
+        //----------------------------------------------------------------------------------------------------
+        
+        try (BufferedReader br = new BufferedReader(new FileReader(pathAdm))) {
+            
+            String line = br.readLine();
+            line = br.readLine();
+            while(line != null) {
+                String[] vetor = line.split(",");
+                String userId = vetor[0];
+                String nome = vetor[1];
+                email = vetor[2];
+                password = vetor[3];
+                boolean isManager = Boolean.parseBoolean(vetor[4]);
+                
+                Administrador newAdmin = new Administrador(nome,email,password,userId,isManager);
+                getListaUtilizadores().add(newAdmin);
+                
+                line = br.readLine();
+            }
+            
+        } catch (IOException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+
+        //Leitura de clientes
+        //----------------------------------------------------------------------------------------------------
+
+        try (BufferedReader br = new BufferedReader(new FileReader(pathClientes))) {
+            String line = br.readLine();
+            line = br.readLine();
+            while(line != null) {
+                String[] vetor = line.split(",");
+                String userId = vetor[0];
+                String nome = vetor[1];
+                email = vetor[2];
+                password = vetor[3];
+                int consumoUltimoMes = Integer.parseInt(vetor[4]);
+                int pagamentoUltimoMes = Integer.parseInt(vetor[5]);
+
+                Cliente newCliente = new Cliente(nome, email, password, userId, consumoUltimoMes, pagamentoUltimoMes);
+                getListaUtilizadores().add(newCliente);
+
+                line = br.readLine();
+            }
+
+        } catch (IOException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+        
+        //Leitura de paineis
+        //----------------------------------------------------------------------------------------------------
+        
+        try (BufferedReader br = new BufferedReader(new FileReader(path))) {
+            
+            String line = br.readLine();
+            line = br.readLine();
+            while(line != null) {
+                String[]vetor = line.split(",");
+                String marca = vetor[0];
+                String modelo = vetor[1];
+                double precoUnitario = Double.parseDouble(vetor[2]);
+                double tempoInstalacao = Double.parseDouble(vetor[3]);
+                double producaoKwh = Double.parseDouble(vetor[4]);
+                double medida = Double.parseDouble(vetor[5]);
+                
+                Painel newPainel = new Painel(marca, modelo, precoUnitario, tempoInstalacao, producaoKwh, medida);
+                getListaPaineis().add(newPainel);
+                
+                line = br.readLine();
+            }
+            
+        } catch (IOException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+
+        // Ler Orcamentos
+        //----------------------------------------------------------------------------------------------------
+        try (BufferedReader br = new BufferedReader(new FileReader(pathOrcamentos))) {
+            String line = br.readLine();
+            line = br.readLine();
+            while(line != null) {
+                String[] vetor = line.split(",");
+                String userId = vetor[0];
+                String descricao = vetor[1];
+                String modelo = vetor[2];
+                double valorTotal = Double.parseDouble(vetor[3]);
+                int tempoTotalInstalacao = Integer.parseInt(vetor[4]);
+                int numPaineis = Integer.parseInt(vetor[5]);
+                int retorno = Integer.parseInt(vetor[6]);
+                double ocupacao = Double.parseDouble(vetor[7]);
+
+                Orcamento orca = new Orcamento(descricao, modelo, valorTotal, tempoTotalInstalacao, numPaineis, retorno, ocupacao);
+                for(Utilizador user : getListaUtilizadores()) {
+                    if(user.getUserId().equals(userId)) {
+                        user.getListaOrcamentos().add(orca);
+                    }
+                }
+
+                line = br.readLine();
+            }
+
+        } catch (IOException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
 }
+

@@ -24,6 +24,18 @@ public class Administrador extends Utilizador
 		ultimaAlteracao = LocalDateTime.now();
 	}
 
+	/**
+	 * @param nome
+	 * @param email
+	 * @param password
+	 * @param userId
+	 */
+	public Administrador(String nome, String email, String password, String userId, boolean isManager) {
+		super(nome, email, password, userId);
+		this.isManager = isManager;
+		ultimaAlteracao = LocalDateTime.now();
+	}
+
 	public double getPagamentoUltimoMes()
 	{
 		return 0;
@@ -53,7 +65,7 @@ public class Administrador extends Utilizador
 	/**
 	 * @return the isManager
 	 */
-	public boolean isManager() {
+	public boolean getIsManager() {
 		return isManager;
 	}
 }

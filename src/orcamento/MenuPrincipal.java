@@ -1,8 +1,5 @@
 package orcamento;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.Scanner;
 
 
@@ -15,71 +12,24 @@ public class MenuPrincipal {
      * @param args
      */
     public static void main(String[] args) {
-		System.out.println("Katchau");
-
         Gerir gestor = new Gerir();
         
         Scanner input = new Scanner(System.in);
         
         int signOption;
         String email = "";
-        String password;
+        String password = "";
         
-        String path = "C:\\Users\\jolit\\OneDrive\\Ambiente de Trabalho\\Faculdade\\1o Ano\\2o Semestre\\Programacao Orientada a Objetos (6 ECTS)\\eclipse-workspace\\Proj24E14B\\paineis.txt";
-        String pathAdm = "C:\\Users\\jolit\\OneDrive\\Ambiente de Trabalho\\Faculdade\\1o Ano\\2o Semestre\\Programacao Orientada a Objetos (6 ECTS)\\eclipse-workspace\\Proj24E14B\\adms.txt";
-        //String path = "C:\\Faculdade\\Projeto SI + POO\\Proj24E14B\\Proj24E14B - Incremento 1\\paineis.txt";
-        //String pathAdm = "C:\\Faculdade\\Projeto SI + POO\\Proj24E14B\\Proj24E14B - Incremento 1\\adms.txt";
+        // String path = "C:\\Users\\jolit\\OneDrive\\Ambiente de Trabalho\\Faculdade\\1o Ano\\2o Semestre\\Programacao Orientada a Objetos (6 ECTS)\\eclipse-workspace\\Proj24E14B\\paineis.txt";
+        // String pathAdm = "C:\\Users\\jolit\\OneDrive\\Ambiente de Trabalho\\Faculdade\\1o Ano\\2o Semestre\\Programacao Orientada a Objetos (6 ECTS)\\eclipse-workspace\\Proj24E14B\\adms.txt";
+        String path = "C:\\Programação\\Repositórios clonados\\Proj24E14B\\paineis.txt";
+        String pathAdm = "C:\\Programação\\Repositórios clonados\\Proj24E14B\\adms.txt";
+        String pathClientes = "C:\\Programação\\Repositórios clonados\\Proj24E14B\\clientes.txt";
+        String pathOrcamentos = "C:\\Programação\\Repositórios clonados\\Proj24E14B\\orcamentos.txt";
 
-        //Leitura de admins
-        //----------------------------------------------------------------------------------------------------
-        
-        try (BufferedReader br = new BufferedReader(new FileReader(pathAdm))) {
-        	
-        	String line = br.readLine();
-        	line = br.readLine();
-        	while(line != null) {
-        		String[] vetor = line.split(",");
-        		String nome = vetor[0];
-        		email = vetor[1];
-        		password = vetor[2];
-        		boolean isManager = Boolean.parseBoolean(vetor[3]);
-        		
-        		Administrador newAdmin = new Administrador(nome,email,password,isManager);
-        		gestor.getListaUtilizadores().add(newAdmin);
-        		
-        		line = br.readLine();
-        	}
-        	
-        } catch (IOException e) {
-        	System.out.println("Error: " + e.getMessage());
-        }
-        
-        //Leitura de paineis
-        //----------------------------------------------------------------------------------------------------
-        
-        try (BufferedReader br = new BufferedReader(new FileReader(path))) {
-        	
-        	String line = br.readLine();
-        	line = br.readLine();
-        	while(line != null) {
-        		String[]vetor = line.split(",");
-        		String marca = vetor[0];
-        		String modelo = vetor[1];
-        		double precoUnitario = Double.parseDouble(vetor[2]);
-        		double tempoInstalacao = Double.parseDouble(vetor[3]);
-        		double producaoKwh = Double.parseDouble(vetor[4]);
-        		double medida = Double.parseDouble(vetor[5]);
-        		
-        		Painel newPainel = new Painel(marca, modelo, precoUnitario, tempoInstalacao, producaoKwh, medida);
-        		gestor.getListaPaineis().add(newPainel);
-        		
-        		line = br.readLine();
-        	}
-        	
-        } catch (IOException e) {
-        	System.out.println("Error: " + e.getMessage());
-        }
-        
+        gestor.lerFicheiros(path, pathAdm, pathClientes, pathOrcamentos);
+
+		// Inicio do programa
         //----------------------------------------------------------------------------------------------------
 
         do {
@@ -97,14 +47,26 @@ public class MenuPrincipal {
         		String tipoUser = "";
         		while(!loginRealizado) {
         			do {
-        				System.out.print("Email: ");
+        				System.out.print("Email('Cancelar' para cancelar o login): ");
         				email = input.nextLine();
+
+						if(email.equals("Cancelar")) {
+							gestor.cancelarOperacao();;
+							break;
+						}
         			}while(!gestor.validarEmail(email));
+
         			
         			do {
-        				System.out.print("Senha: ");
+        				System.out.print("Senha('Cancelar' para cancelar o login): ");
         				password = input.nextLine();
+
+						if(password.equals("Cancelar")) {
+							gestor.cancelarOperacao();;
+							break;
+						}
         			} while(password.isEmpty()); //gestor.validarSenha(password)
+
         			
         			tipoUser = gestor.fazerLogin(email, password);
         			
@@ -122,41 +84,76 @@ public class MenuPrincipal {
         		
         	} else {
         		String nome;
-        		int consumoUltimoMes;
-        		int pagamentoUltimoMes;
-        		
-        		
         		do {
-        			System.out.println("Nome: ");
+        			System.out.println("Nome('Cancelar' para cancelar o registo): ");
         			nome = input.nextLine();
+
+					if(nome.equals("Cancelar")) {
+						gestor.cancelarOperacao();
+						break;
+					}
         		} while(nome.equals(""));
         		
         		do {
-        			System.out.println("Email: ");
+        			System.out.println("Email('Cancelar' para cancelar o registo): ");
         			email = input.nextLine();
+
+					if(email.equals("Cancelar")) {
+						gestor.cancelarOperacao();
+						break;
+					}
         		} while(!gestor.validarEmail(email) || gestor.pesquisarEmail(email) != -1);
         		
         		do {
-        			System.out.println("Palavra-passe:\n"
+        			System.out.println("Palavra-passe('Cancelar' para cancelar o registo):\n"
         					+ "-Pelo menos 8 caracteres.\n"
         					+ "-Pelo menos 1 letra maiúscula.\n"
         					+ "-Pelo menos 1 letra minúscula.\n"
         					+ "-Pelo menos 1 número\n"
         					+ "-Pelo menos 1 carácter especial (@#$%&)\n");
         			password = input.nextLine();
+
+					if(password.equals("Cancelar")) {
+						gestor.cancelarOperacao();
+						break;
+					}
         		} while(!gestor.validarSenha(password));
         		
+				int consumoUltimoMes = -1;
         		do {
-        			System.out.println("Quantos kWh foram consumidos na sua residência no último mês?: ");
-        			consumoUltimoMes = input.nextInt();
-        			input.nextLine();
-        		} while(consumoUltimoMes < 0);
+					System.out.println("Quantos kWh foram consumidos na sua residência no último mês?('Cancelar' para cancelar o registo): ");
+					String entrada = input.nextLine();
+				
+					if (entrada.equalsIgnoreCase("Cancelar")) {
+						gestor.cancelarOperacao();
+						break;
+					}
+				
+					try {
+						consumoUltimoMes = Integer.parseInt(entrada);
+					} catch (NumberFormatException e) {
+						System.out.println("Por favor, insira um número válido ou 'Cancelar' para cancelar o registo.");
+						consumoUltimoMes = -1;
+					}
+				} while(consumoUltimoMes < 0);
         		
+				int pagamentoUltimoMes = -1;
         		do {
-        			System.out.println("Qual foi o valor da fatura paga no último mês?: ");
-        			pagamentoUltimoMes = input.nextInt();
-        			input.nextLine();
-        		} while(pagamentoUltimoMes < 0);
+					System.out.println("Quanto pagou na sua última fatura?('Cancelar' para cancelar o registo): ");
+					String entrada = input.nextLine();
+
+					if (entrada.equalsIgnoreCase("Cancelar")) {
+						gestor.cancelarOperacao();
+						break;
+					}
+
+					try {
+						pagamentoUltimoMes = Integer.parseInt(entrada);
+					} catch (NumberFormatException e) {
+						System.out.println("Por favor, insira um número válido ou 'Cancelar' para cancelar o registo.");
+						pagamentoUltimoMes = -1;
+					}
+				} while(pagamentoUltimoMes < 0);
         		
         		Cliente newCliente = new Cliente(nome, email, password, consumoUltimoMes, pagamentoUltimoMes);
         		gestor.inserirUtilizador(newCliente);
