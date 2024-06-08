@@ -1,0 +1,2 @@
+userId,descricao,modelo,valorTotal,tempoTotalInstalacao,numPaineis,retorno,ocupacao
+U69tFz5,brasil,DCT-EI-2003,1566.0,32,9,18,19.349999999999998

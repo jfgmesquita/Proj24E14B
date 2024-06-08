@@ -25,6 +25,21 @@ public class Cliente extends Utilizador {
         this.pagamentoUltimoMes = pagamentoUltimoMes;
         listaOrcamentos = new ArrayList<>();
     }
+
+    /**
+     * @param nome
+     * @param email
+     * @param password
+     * @param userId
+     * @param consumoUltimoMes
+     * @param pagamentoUltimoMes
+     */
+    public Cliente(String nome, String email, String password, String userId, int consumoUltimoMes, double pagamentoUltimoMes) {
+        super(nome, email, password, userId);
+        this.consumoUltimoMes = consumoUltimoMes;
+        this.pagamentoUltimoMes = pagamentoUltimoMes;
+        listaOrcamentos = new ArrayList<>();
+    }
     
     /**
      * @return the consumoUltimoMes
