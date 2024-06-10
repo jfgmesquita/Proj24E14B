@@ -109,7 +109,7 @@ public class MenuPrincipal {
         		} while(!gestor.validarEmail(email) || gestor.pesquisarEmail(email) != -1);
         		
         		do {
-        			System.out.println("Palavra-passe('Cancelar' para cancelar o registo):\n"
+        			System.out.println("Palavra-passe ('Cancelar' para cancelar o registo):\n"
         					+ "-Pelo menos 8 caracteres.\n"
         					+ "-Pelo menos 1 letra maiúscula.\n"
         					+ "-Pelo menos 1 letra minúscula.\n"
@@ -125,7 +125,7 @@ public class MenuPrincipal {
         		
 				int consumoUltimoMes = -1;
         		do {
-					System.out.println("Quantos kWh foram consumidos na sua residência no último mês?('Cancelar' para cancelar o registo): ");
+					System.out.println("Quantos kWh foram consumidos na sua residência no último mês? ('Cancelar' para cancelar o registo): ");
 					String entrada = input.nextLine();
 				
 					if (entrada.equalsIgnoreCase("Cancelar")) {
@@ -143,7 +143,7 @@ public class MenuPrincipal {
         		
 				int pagamentoUltimoMes = -1;
         		do {
-					System.out.println("Quanto pagou na sua última fatura?('Cancelar' para cancelar o registo): ");
+					System.out.println("Quanto pagou na sua última fatura? ('Cancelar' para cancelar o registo): ");
 					String entrada = input.nextLine();
 
 					if (entrada.equalsIgnoreCase("Cancelar")) {
