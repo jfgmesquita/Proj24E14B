@@ -307,7 +307,7 @@ public class Gerir {
                         }
                     }
                     DecimalFormat df = new DecimalFormat("#.##");
-                    System.out.println("Orçamento com menor valor total: " + menorValorOrca + " (" + df.format(menorValorTotal) + " Euros)");
+                    System.out.println("Orçamento com menor valor total: " + menorValorOrca + " (" + df.format(menorValorTotal) + " euros)");
                     System.out.println("Orçamento com menor tempo total de instalação: " + menorTempoOrca + " (" + menorTempoTotalInstalacao + " horas)");
                     System.out.println("Orçamento com retorno mais rápido: " + maisRapidoOrca + " (" + retornoMaisRapido + " meses)");
                     System.out.println("Orçamento com menos espaço ocupado: " + menosEspacoOrca + " (" + df.format(menorValorOcupacao) + " m²)");
@@ -332,8 +332,8 @@ public class Gerir {
     	estimativaCo2 = (producaoKwh * orca.getNumPaineis()) * 130;
     	estimativaAnual = (estimativaCo2 * 24 * 365)/1000; 	
     	estimativaArvores = (int) Math.ceil(estimativaAnual/22);
-    	System.out.println("Ao final de um ano, você contribuirá ao meio ambiente com menos " 
-    	+ Math.round(estimativaAnual) + "kg de carbono emitidos, equivalente a " + estimativaArvores + " arvores plantadas.");
+    	System.out.println("Ao fim de um ano, estará a ajudar o meio ambiente com menos " 
+    	+ Math.round(estimativaAnual) + "Kg de CO2 emitidos, o equivalente a " + estimativaArvores + " árvores plantadas!");
     }
 
     /**
