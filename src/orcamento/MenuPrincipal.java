@@ -20,14 +20,14 @@ public class MenuPrincipal {
         String email = "";
         String password = "";
         
-        String path = "C:\\Users\\jolit\\OneDrive\\Ambiente de Trabalho\\Faculdade\\1o Ano\\2o Semestre\\Programacao Orientada a Objetos (6 ECTS)\\eclipse-workspace\\Proj24E14B\\paineis.txt";
-        String pathAdm = "C:\\Users\\jolit\\OneDrive\\Ambiente de Trabalho\\Faculdade\\1o Ano\\2o Semestre\\Programacao Orientada a Objetos (6 ECTS)\\eclipse-workspace\\Proj24E14B\\adms.txt";
-		String pathClientes = "C:\\Users\\jolit\\OneDrive\\Ambiente de Trabalho\\Faculdade\\1o Ano\\2o Semestre\\Programacao Orientada a Objetos (6 ECTS)\\eclipse-workspace\\Proj24E14B\\clientes.txt";
-        String pathOrcamentos = "C:\\Users\\jolit\\OneDrive\\Ambiente de Trabalho\\Faculdade\\1o Ano\\2o Semestre\\Programacao Orientada a Objetos (6 ECTS)\\eclipse-workspace\\Proj24E14B\\orcamentos.txt";
-        // String path = "C:\\Programação\\Repositórios clonados\\Proj24E14B\\paineis.txt";
-        // String pathAdm = "C:\\Programação\\Repositórios clonados\\Proj24E14B\\adms.txt";
-        // String pathClientes = "C:\\Programação\\Repositórios clonados\\Proj24E14B\\clientes.txt";
-        // String pathOrcamentos = "C:\\Programação\\Repositórios clonados\\Proj24E14B\\orcamentos.txt";
+        // String path = "C:\\Users\\jolit\\OneDrive\\Ambiente de Trabalho\\Faculdade\\1o Ano\\2o Semestre\\Programacao Orientada a Objetos (6 ECTS)\\eclipse-workspace\\Proj24E14B\\paineis.txt";
+        // String pathAdm = "C:\\Users\\jolit\\OneDrive\\Ambiente de Trabalho\\Faculdade\\1o Ano\\2o Semestre\\Programacao Orientada a Objetos (6 ECTS)\\eclipse-workspace\\Proj24E14B\\adms.txt";
+		// String pathClientes = "C:\\Users\\jolit\\OneDrive\\Ambiente de Trabalho\\Faculdade\\1o Ano\\2o Semestre\\Programacao Orientada a Objetos (6 ECTS)\\eclipse-workspace\\Proj24E14B\\clientes.txt";
+        // String pathOrcamentos = "C:\\Users\\jolit\\OneDrive\\Ambiente de Trabalho\\Faculdade\\1o Ano\\2o Semestre\\Programacao Orientada a Objetos (6 ECTS)\\eclipse-workspace\\Proj24E14B\\orcamentos.txt";
+        String path = "C:\\Programação\\Repositórios clonados\\Proj24E14B\\paineis.txt";
+        String pathAdm = "C:\\Programação\\Repositórios clonados\\Proj24E14B\\adms.txt";
+        String pathClientes = "C:\\Programação\\Repositórios clonados\\Proj24E14B\\clientes.txt";
+        String pathOrcamentos = "C:\\Programação\\Repositórios clonados\\Proj24E14B\\orcamentos.txt";
 
         gestor.lerFicheiros(path, pathAdm, pathClientes, pathOrcamentos);
 
@@ -53,23 +53,21 @@ public class MenuPrincipal {
         				email = input.nextLine();
 
 						if(email.equalsIgnoreCase("Cancelar")) {
-							gestor.cancelarOperacao();;
-							break;
+							gestor.cancelarOperacao();
 						}
         			}while(!gestor.validarEmail(email));
 
         			
-        			do {
+					do {
 
-        				System.out.print("Senha('Cancelar' para cancelar o login): ");
-        				password = gestor.readPassword();
+						System.out.print("Senha('Cancelar' para cancelar o login): ");
+						password = gestor.readPassword();
 
 
 						if(password.equalsIgnoreCase("Cancelar")) {
-							gestor.cancelarOperacao();;
-							break;
+							gestor.cancelarOperacao();
 						}
-        			} while(password.isEmpty());
+					} while(password.isEmpty());
 
         			
         			tipoUser = gestor.fazerLogin(email, password);
@@ -94,7 +92,6 @@ public class MenuPrincipal {
 
 					if(nome.equalsIgnoreCase("Cancelar")) {
 						gestor.cancelarOperacao();
-						break;
 					}
         		} while(nome.equals(""));
         		
@@ -104,7 +101,6 @@ public class MenuPrincipal {
 
 					if(email.equalsIgnoreCase("Cancelar")) {
 						gestor.cancelarOperacao();
-						break;
 					}
         		} while(!gestor.validarEmail(email) || gestor.pesquisarEmail(email) != -1);
         		
@@ -119,7 +115,6 @@ public class MenuPrincipal {
 
 					if(password.equalsIgnoreCase("Cancelar")) {
 						gestor.cancelarOperacao();
-						break;
 					}
         		} while(!gestor.validarSenha(password));
         		
@@ -130,7 +125,6 @@ public class MenuPrincipal {
 				
 					if (entrada.equalsIgnoreCase("Cancelar")) {
 						gestor.cancelarOperacao();
-						break;
 					}
 				
 					try {
@@ -148,7 +142,6 @@ public class MenuPrincipal {
 
 					if (entrada.equalsIgnoreCase("Cancelar")) {
 						gestor.cancelarOperacao();
-						break;
 					}
 
 					try {

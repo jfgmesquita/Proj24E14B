@@ -1,3 +1,6 @@
 userId,nome,email,password,consumoUltimoMes,pagamentoUltimoMes
 U69tFz5,Thiago Rocha,thiagorocha@gmail.com,Thiago$2004,500,90
 3b1tQ2Q,Thomas Ramirez,thomas@gmail.com,Thomas$2004,404,79
+7W6j7iR,Paula Morais,pmorais@upt.pt,Paula$2024,600,150
+U41r8uZ,Filomena,filomena@upt.pt,Filo$2024,500,59
+XI925yn,Fernando,fmoreira@upt.pt,Fernando$2024,800,120

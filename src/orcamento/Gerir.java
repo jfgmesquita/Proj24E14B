@@ -350,8 +350,9 @@ public class Gerir {
         return listaPaineis;
     }
 
-    public void cancelarOperacao() {
+    public void cancelarOperacao() {  
         MenuPrincipal.main(null);
+        System.exit(0);
     }
 
     public void lerFicheiros(String path, String pathAdm, String pathClientes, String pathOrcamentos)
