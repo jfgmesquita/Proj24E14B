@@ -2,6 +2,3 @@ nome, userId,email,password,isManager
 Devysson,M4n5O6p,devyssonsc@gmail.com,Devysson$2003,true
 João Mesquita,X9y8Z7w,jolitas2005@gmail.com,Joao$2005,false
 Ana Souto,S9hg3A6,anacarolinapsouto@gmail.com,Ana$2001,false
-RO150qi,Paula,pmorais@upt.pt,paula$2024,false
-2viMV12,Filomena,flopes@upt.pt,Filomena$2024,false
-lVpN956,Fernando Moreira,fmoreira@upt.pt,Fernando$2024,false
