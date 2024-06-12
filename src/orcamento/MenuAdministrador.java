@@ -264,7 +264,7 @@ public class MenuAdministrador {
 							option = -1;
 						}
 			        	input.nextLine();
-	        		} while(option < 0 || option > 3);
+	        		} while(option < 0 || option > limite);
 	        	}
         	}
         }
