@@ -143,21 +143,38 @@ public class MenuAdministrador {
 						case 4:
 							
 							String nome;
-							do{
-								System.out.print("Nome: ");
+							do {
+								System.out.println("Nome ('Cancelar' para cancelar o registo): ");
 								nome = input.nextLine();
+			
+								if(nome.equalsIgnoreCase("Cancelar")) {
+									gestor.cancelarOperacao();
+								}
 							} while(nome.equals(""));
 							
-							do{
-								System.out.print("Email: ");
+							do {
+								System.out.println("Email ('Cancelar' para cancelar o registo): ");
 								email = input.nextLine();
-							} while(email.equals(""));
+			
+								if(email.equalsIgnoreCase("Cancelar")) {
+									gestor.cancelarOperacao();
+								}
+							} while(!gestor.validarEmail(email) || gestor.pesquisarEmail(email) != -1);
 
 							String password;
-							do{
-								System.out.print("Senha: ");
+							do {
+								System.out.println("Palavra-passe ('Cancelar' para cancelar o registo):\n"
+										+ "-Pelo menos 8 caracteres.\n"
+										+ "-Pelo menos 1 letra maiúscula.\n"
+										+ "-Pelo menos 1 letra minúscula.\n"
+										+ "-Pelo menos 1 número\n"
+										+ "-Pelo menos 1 carácter especial (@#$%&)\n");
 								password = gestor.readPassword();
-							} while(password.equals(""));
+			
+								if(password.equalsIgnoreCase("Cancelar")) {
+									gestor.cancelarOperacao();
+								}
+							} while(!gestor.validarSenha(password));
 
 							String isManagerString;
 							do{
@@ -168,22 +185,30 @@ public class MenuAdministrador {
 							if (isManagerString.equalsIgnoreCase("S")) {
 								Administrador newAdm = new Administrador(nome, email, password, true);
 								gestor.inserirUtilizador(newAdm);
-								gestor.escreverUtilizadores(newAdm);
 							} else {
 								Administrador newAdm = new Administrador(nome, email, password, false);
 								gestor.inserirUtilizador(newAdm);
-								gestor.escreverUtilizadores(newAdm);
 							}
 	        		}
 	        		
 	        		
 	        		do {
-			        	System.out.println("Que operação deseja realizar?\n"
-		        					+ "1) Registar painel\n"
-		        					+ "2) Alterar preço unitário de um painel\n"
-		        					+ "3) Alterar tempo de instalação de um painel\n"
+			        	if(adm.getIsManager()){
+							System.out.println("Que operação deseja realizar?\n"
+									+ "1) Registar painel\n"
+									+ "2) Alterar preço unitário de um painel\n"
+									+ "3) Alterar tempo de instalação de um painel\n"
 									+ "4) Registar novo administrador\n"
-		        					+ "0) Log out");
+									+ "0) Log out");
+							limite = 4;
+						} else {
+							System.out.println("Que operação deseja realizar?\n"
+									+ "1) Registar painel\n"
+									+ "2) Alterar preço unitário de um painel\n"
+									+ "3) Alterar tempo de instalação de um painel\n"
+									+ "0) Log out");
+							limite = 3;
+						}
 			        	option = input.nextInt();
 			        	input.nextLine();
 	        		} while(option < 0 || option > 3);

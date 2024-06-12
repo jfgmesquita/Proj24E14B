@@ -19,9 +19,6 @@ import javax.swing.JPasswordField;
 import java.util.regex.Matcher;
 import org.apache.commons.validator.routines.EmailValidator;
 
-/**
- *
- */
 public class Gerir {
     private ArrayList<Utilizador> listaUtilizadores;
     private ArrayList<Painel> listaPaineis;
@@ -350,19 +347,16 @@ public class Gerir {
         return listaPaineis;
     }
 
+    /**
+     * Cancels the ongoing operation and returns to the previous menu.
+     */
     public void cancelarOperacao() {  
         MenuPrincipal.main(null);
         System.exit(0);
     }
 
-    public void lerFicheiros(String path, String pathAdm, String pathClientes, String pathOrcamentos)
+    public void lerFicheiroAdms(String pathAdm)
     {
-
-        String email;
-        String password;
-        //Leitura de admins
-        //----------------------------------------------------------------------------------------------------
-        
         try (BufferedReader br = new BufferedReader(new FileReader(pathAdm))) {
             
             String line = br.readLine();
@@ -371,8 +365,8 @@ public class Gerir {
                 String[] vetor = line.split(",");
                 String userId = vetor[0];
                 String nome = vetor[1];
-                email = vetor[2];
-                password = vetor[3];
+                String email = vetor[2];
+                String password = vetor[3];
                 boolean isManager = Boolean.parseBoolean(vetor[4]);
                 
                 Administrador newAdmin = new Administrador(nome,email,password,userId,isManager);
@@ -384,10 +378,10 @@ public class Gerir {
         } catch (IOException e) {
             System.out.println("Error: " + e.getMessage());
         }
+    }
 
-        //Leitura de clientes
-        //----------------------------------------------------------------------------------------------------
-
+    public void lerFicheiroClientes(String pathClientes)
+    {
         try (BufferedReader br = new BufferedReader(new FileReader(pathClientes))) {
             String line = br.readLine();
             line = br.readLine();
@@ -395,8 +389,8 @@ public class Gerir {
                 String[] vetor = line.split(",");
                 String userId = vetor[0];
                 String nome = vetor[1];
-                email = vetor[2];
-                password = vetor[3];
+                String email = vetor[2];
+                String password = vetor[3];
                 int consumoUltimoMes = Integer.parseInt(vetor[4]);
                 int pagamentoUltimoMes = Integer.parseInt(vetor[5]);
 
@@ -409,10 +403,10 @@ public class Gerir {
         } catch (IOException e) {
             System.out.println("Error: " + e.getMessage());
         }
-        
-        //Leitura de paineis
-        //----------------------------------------------------------------------------------------------------
-        
+    }
+
+    public void lerFicheiroPaineis(String path)
+    {
         try (BufferedReader br = new BufferedReader(new FileReader(path))) {
             
             String line = br.readLine();
@@ -435,9 +429,10 @@ public class Gerir {
         } catch (IOException e) {
             System.out.println("Error: " + e.getMessage());
         }
+    }
 
-        // Ler Orcamentos
-        //----------------------------------------------------------------------------------------------------
+    public void lerFicheiroOrcamentos(String pathOrcamentos)
+    {
         try (BufferedReader br = new BufferedReader(new FileReader(pathOrcamentos))) {
             String line = br.readLine();
             line = br.readLine();
@@ -465,6 +460,26 @@ public class Gerir {
         } catch (IOException e) {
             System.out.println("Error: " + e.getMessage());
         }
+    }
+
+    public void lerFicheiros(String path, String pathAdm, String pathClientes, String pathOrcamentos)
+    {
+        //Leitura de amds
+        //----------------------------------------------------------------------------------------------------
+        lerFicheiroAdms(pathAdm);
+
+        //Leitura de clientes
+        //----------------------------------------------------------------------------------------------------
+        lerFicheiroClientes(pathClientes);
+        
+        //Leitura de paineis
+        //----------------------------------------------------------------------------------------------------
+        lerFicheiroPaineis(path);
+
+        // Ler Orcamentos
+        //----------------------------------------------------------------------------------------------------
+        lerFicheiroOrcamentos(pathOrcamentos);
+
     }
 
     public String readPassword() {
