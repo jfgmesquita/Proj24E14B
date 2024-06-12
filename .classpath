@@ -6,7 +6,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
-	<!-- <classpathentry kind="lib" path="C:\\Programação\\Repositórios clonados\\Proj24E14B\\commons-validator-1.8.0.jar"/> -->
-	<classpathentry kind="lib" path="C:\\Users\\jolit\\OneDrive\\Ambiente de Trabalho\\Faculdade\\1o Ano\\2o Semestre\\Programacao Orientada a Objetos (6 ECTS)\\eclipse-workspace\\Proj24E14B\\commons-validator-1.8.0.jar"/>
+	<classpathentry kind="lib" path="C:\\Programação\\Repositórios clonados\\Proj24E14B\\commons-validator-1.8.0.jar"/>
+	<!-- <classpathentry kind="lib" path="C:\\Users\\jolit\\OneDrive\\Ambiente de Trabalho\\Faculdade\\1o Ano\\2o Semestre\\Programacao Orientada a Objetos (6 ECTS)\\eclipse-workspace\\Proj24E14B\\commons-validator-1.8.0.jar"/> -->
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -20,14 +20,14 @@ public class MenuPrincipal {
         String email = "";
         String password = "";
         
-        String path = "C:\\Users\\jolit\\OneDrive\\Ambiente de Trabalho\\Faculdade\\1o Ano\\2o Semestre\\Programacao Orientada a Objetos (6 ECTS)\\eclipse-workspace\\Proj24E14B\\paineis.txt";
-        String pathAdm = "C:\\Users\\jolit\\OneDrive\\Ambiente de Trabalho\\Faculdade\\1o Ano\\2o Semestre\\Programacao Orientada a Objetos (6 ECTS)\\eclipse-workspace\\Proj24E14B\\adms.txt";
-		String pathClientes = "C:\\Users\\jolit\\OneDrive\\Ambiente de Trabalho\\Faculdade\\1o Ano\\2o Semestre\\Programacao Orientada a Objetos (6 ECTS)\\eclipse-workspace\\Proj24E14B\\clientes.txt";
-        String pathOrcamentos = "C:\\Users\\jolit\\OneDrive\\Ambiente de Trabalho\\Faculdade\\1o Ano\\2o Semestre\\Programacao Orientada a Objetos (6 ECTS)\\eclipse-workspace\\Proj24E14B\\orcamentos.txt";
-		// String path = "C:\\Programação\\Repositórios clonados\\Proj24E14B\\paineis.txt";
-        // String pathAdm = "C:\\Programação\\Repositórios clonados\\Proj24E14B\\adms.txt";
-        // String pathClientes = "C:\\Programação\\Repositórios clonados\\Proj24E14B\\clientes.txt";
-        // String pathOrcamentos = "C:\\Programação\\Repositórios clonados\\Proj24E14B\\orcamentos.txt";
+        // String path = "C:\\Users\\jolit\\OneDrive\\Ambiente de Trabalho\\Faculdade\\1o Ano\\2o Semestre\\Programacao Orientada a Objetos (6 ECTS)\\eclipse-workspace\\Proj24E14B\\paineis.txt";
+        // String pathAdm = "C:\\Users\\jolit\\OneDrive\\Ambiente de Trabalho\\Faculdade\\1o Ano\\2o Semestre\\Programacao Orientada a Objetos (6 ECTS)\\eclipse-workspace\\Proj24E14B\\adms.txt";
+		// String pathClientes = "C:\\Users\\jolit\\OneDrive\\Ambiente de Trabalho\\Faculdade\\1o Ano\\2o Semestre\\Programacao Orientada a Objetos (6 ECTS)\\eclipse-workspace\\Proj24E14B\\clientes.txt";
+        // String pathOrcamentos = "C:\\Users\\jolit\\OneDrive\\Ambiente de Trabalho\\Faculdade\\1o Ano\\2o Semestre\\Programacao Orientada a Objetos (6 ECTS)\\eclipse-workspace\\Proj24E14B\\orcamentos.txt";
+		String path = "C:\\Programação\\Repositórios clonados\\Proj24E14B\\paineis.txt";
+        String pathAdm = "C:\\Programação\\Repositórios clonados\\Proj24E14B\\adms.txt";
+        String pathClientes = "C:\\Programação\\Repositórios clonados\\Proj24E14B\\clientes.txt";
+        String pathOrcamentos = "C:\\Programação\\Repositórios clonados\\Proj24E14B\\orcamentos.txt";
 
         gestor.lerFicheiros(path, pathAdm, pathClientes, pathOrcamentos);
 

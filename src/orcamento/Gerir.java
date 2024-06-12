@@ -55,7 +55,7 @@ public class Gerir {
 
                 fileWriter = new FileWriter("adms.txt", true);
                 Administrador adm = (Administrador) newUtilizador;
-                saida = adm.getUserId() + "," + adm.getNome() + "," + adm.getEmail() + "," + adm.getPassword() + "," + adm.getIsManager();
+                saida = adm.getNome() + "," + adm.getUserId() + "," + adm.getEmail() + "," + adm.getPassword() + "," + adm.getIsManager();
             } else {
 
                 fileWriter = new FileWriter("utilizadores.txt", true);
