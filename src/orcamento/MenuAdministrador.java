@@ -32,8 +32,14 @@ public class MenuAdministrador {
 								+ "0) Log out");
 						limite = 3;
 					}
-		        	option = input.nextInt();
-		        	input.nextLine();
+		        	try {
+						option = input.nextInt();
+					}
+					catch (Exception e) {
+						System.out.println("\nERRO: Escolha uma das opções apresentadas.");
+						option = -1;
+					}
+					input.nextLine();
         		} while(option < 0 || option > limite);
 	        	
 	        	while(option != 0) {
@@ -58,26 +64,46 @@ public class MenuAdministrador {
 		        			
 		        			do {
 		        				System.out.print("Preço Unitário: ");
-		        				precoUnitario = input.nextDouble();
-		        				input.nextLine();
+		        				try {
+									precoUnitario = input.nextDouble();								
+								} catch (Exception e) {
+									System.out.println("ERRO: Insira um valor válido.");
+									precoUnitario = -1;
+								}
+								input.nextLine();
 		        			} while(precoUnitario < 0);
 		        			
 		        			do {
 		        				System.out.print("Tempo de Instalação: ");
-		        				tempoInstalacao = input.nextDouble();
+		        				try {
+									tempoInstalacao = input.nextDouble();
+								} catch (Exception e) {
+									System.out.println("ERRO: Insira um valor válido.");
+									tempoInstalacao = -1;
+								}
 		        				input.nextLine();
 		        			} while(tempoInstalacao < 0);
 		        			
 		        			do {
 		        				System.out.print("Produção(Em Kwh): ");
-		        				producaoKwh = input.nextDouble();
+		        				try {
+									producaoKwh = input.nextDouble();
+								} catch (Exception e) {
+									System.out.println("ERRO: Insira um valor válido.");
+									producaoKwh = -1;
+								}
 		        				input.nextLine();
 		        			} while(producaoKwh < 0);
 
 							double medida;
 							do{
 								System.out.print("Medida(Em m2): ");
-								medida = input.nextDouble();
+								try {
+									medida = input.nextDouble();
+								} catch (Exception e) {
+									System.out.println("ERRO: Insira um valor válido.");
+									medida = -1;
+								}
 								input.nextLine();
 							} while(medida < 0);
 		        			
@@ -101,7 +127,12 @@ public class MenuAdministrador {
 
 		        			do {
 		        				System.out.print("\nDeseja alterar o preço unitário de qual painel?:");
-		        				modeloOption = input.nextInt();
+		        				try {
+									modeloOption = input.nextInt();
+								} catch (Exception e) {
+									System.out.println("ERRO: Insira um valor válido.");
+									modeloOption = -1;
+								}
 								input.nextLine();
 		        			} while(modeloOption <= 0 || modeloOption > gestor.getListaPaineis().size());
 
@@ -109,7 +140,12 @@ public class MenuAdministrador {
 		        			
 		        			do {
 		        				System.out.print("\nNovo preço unitário do painel " + modelo + ":");
-		        				precoUnitario = input.nextDouble();
+		        				try {
+									precoUnitario = input.nextDouble();
+								} catch (Exception e) {
+									System.out.println("ERRO: Insira um valor válido.");
+									precoUnitario = -1;
+								}
 		        				input.nextLine();
 		        			} while(precoUnitario < 0);
 		        			
@@ -123,7 +159,12 @@ public class MenuAdministrador {
 						gestor.mostrarPaineis();
 		        			do {
 		        				System.out.print("\nDeseja alterar o tempo de instalação de qual painel?:");
-		        				modeloOption = input.nextInt();
+		        				try {
+									modeloOption = input.nextInt();
+								} catch (Exception e) {
+									System.out.println("ERRO: Insira um valor válido.");
+									modeloOption = -1;
+								}
 								input.nextLine();
 		        			} while(modeloOption <= 0 || modeloOption > gestor.getListaPaineis().size());
 
@@ -131,7 +172,12 @@ public class MenuAdministrador {
 
 		        			do {
 		        				System.out.print("\nNovo tempo de instalação do painel " + modelo + ":");
-		        				tempoInstalacao = input.nextDouble();
+		        				try {
+									tempoInstalacao = input.nextDouble();
+								} catch (Exception e) {
+									System.out.println("ERRO: Insira um valor válido.");
+									tempoInstalacao = -1;
+								}
 		        				input.nextLine();
 		        			} while(tempoInstalacao < 0);
 		        			
@@ -189,6 +235,7 @@ public class MenuAdministrador {
 								Administrador newAdm = new Administrador(nome, email, password, false);
 								gestor.inserirUtilizador(newAdm);
 							}
+							System.out.println("\nAdministrador adicionado!\n");
 	        		}
 	        		
 	        		
@@ -209,7 +256,13 @@ public class MenuAdministrador {
 									+ "0) Log out");
 							limite = 3;
 						}
-			        	option = input.nextInt();
+			        	try {
+							option = input.nextInt();
+						}
+						catch (Exception e) {
+							System.out.println("\nERRO: Escolha uma das opções apresentadas.");
+							option = -1;
+						}
 			        	input.nextLine();
 	        		} while(option < 0 || option > 3);
 	        	}

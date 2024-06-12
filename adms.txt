@@ -1,4 +1,4 @@
 nome, userId,email,password,isManager
 Devysson,M4n5O6p,devyssonsc@gmail.com,Devysson$2003,true
-João Mesquita,X9y8Z7w,jolitas2005@gmail.com,Joao$2005,false
+João Mesquita,X9y8Z7w,jolitas2005@gmail.com,Joao$2005,true
 Ana Souto,S9hg3A6,anacarolinapsouto@gmail.com,Ana$2001,false
