@@ -202,7 +202,7 @@ public class Gerir {
     
     public void mostrarPaineis()
     {
-    	System.out.println("\nPaineis:");
+    	System.out.println("\nPainéis:");
     	for(Painel painel : listaPaineis) {
     		System.out.println((listaPaineis.indexOf(painel) + 1) + ") " + painel);
     	}

@@ -20,14 +20,14 @@ public class MenuPrincipal {
         String email = "";
         String password = "";
         
-        // String path = "C:\\Users\\jolit\\OneDrive\\Ambiente de Trabalho\\Faculdade\\1o Ano\\2o Semestre\\Programacao Orientada a Objetos (6 ECTS)\\eclipse-workspace\\Proj24E14B\\paineis.txt";
-        // String pathAdm = "C:\\Users\\jolit\\OneDrive\\Ambiente de Trabalho\\Faculdade\\1o Ano\\2o Semestre\\Programacao Orientada a Objetos (6 ECTS)\\eclipse-workspace\\Proj24E14B\\adms.txt";
-		// String pathClientes = "C:\\Users\\jolit\\OneDrive\\Ambiente de Trabalho\\Faculdade\\1o Ano\\2o Semestre\\Programacao Orientada a Objetos (6 ECTS)\\eclipse-workspace\\Proj24E14B\\clientes.txt";
-        // String pathOrcamentos = "C:\\Users\\jolit\\OneDrive\\Ambiente de Trabalho\\Faculdade\\1o Ano\\2o Semestre\\Programacao Orientada a Objetos (6 ECTS)\\eclipse-workspace\\Proj24E14B\\orcamentos.txt";
-        String path = "C:\\Programação\\Repositórios clonados\\Proj24E14B\\paineis.txt";
-        String pathAdm = "C:\\Programação\\Repositórios clonados\\Proj24E14B\\adms.txt";
-        String pathClientes = "C:\\Programação\\Repositórios clonados\\Proj24E14B\\clientes.txt";
-        String pathOrcamentos = "C:\\Programação\\Repositórios clonados\\Proj24E14B\\orcamentos.txt";
+        String path = "C:\\Users\\jolit\\OneDrive\\Ambiente de Trabalho\\Faculdade\\1o Ano\\2o Semestre\\Programacao Orientada a Objetos (6 ECTS)\\eclipse-workspace\\Proj24E14B\\paineis.txt";
+        String pathAdm = "C:\\Users\\jolit\\OneDrive\\Ambiente de Trabalho\\Faculdade\\1o Ano\\2o Semestre\\Programacao Orientada a Objetos (6 ECTS)\\eclipse-workspace\\Proj24E14B\\adms.txt";
+		String pathClientes = "C:\\Users\\jolit\\OneDrive\\Ambiente de Trabalho\\Faculdade\\1o Ano\\2o Semestre\\Programacao Orientada a Objetos (6 ECTS)\\eclipse-workspace\\Proj24E14B\\clientes.txt";
+        String pathOrcamentos = "C:\\Users\\jolit\\OneDrive\\Ambiente de Trabalho\\Faculdade\\1o Ano\\2o Semestre\\Programacao Orientada a Objetos (6 ECTS)\\eclipse-workspace\\Proj24E14B\\orcamentos.txt";
+		// String path = "C:\\Programação\\Repositórios clonados\\Proj24E14B\\paineis.txt";
+        // String pathAdm = "C:\\Programação\\Repositórios clonados\\Proj24E14B\\adms.txt";
+        // String pathClientes = "C:\\Programação\\Repositórios clonados\\Proj24E14B\\clientes.txt";
+        // String pathOrcamentos = "C:\\Programação\\Repositórios clonados\\Proj24E14B\\orcamentos.txt";
 
         gestor.lerFicheiros(path, pathAdm, pathClientes, pathOrcamentos);
 
@@ -39,8 +39,14 @@ public class MenuPrincipal {
             System.out.println("1) Fazer login");
             System.out.println("2) Criar um perfil");
             System.out.println("0) Sair do programa");
-            signOption = input.nextInt();
-            input.nextLine();
+            try {
+				signOption = input.nextInt();
+			}
+			catch (Exception e) {
+				System.out.println("\nERRO: Escolha uma das opções apresentadas.");
+				signOption = -1;
+			}
+			input.nextLine();
         } while(signOption < 0 || signOption > 2);
 
         while(signOption != 0) {
@@ -163,7 +169,13 @@ public class MenuPrincipal {
                 System.out.println("1) Fazer login");
                 System.out.println("2) Criar um perfil");
                 System.out.println("0) Sair do programa");
-                signOption = input.nextInt();
+				try {
+					signOption = input.nextInt();
+				}
+				catch (Exception e) {
+					System.out.println("\nERRO: Escolha uma das opções apresentadas.");
+					signOption = -1;
+				}
                 input.nextLine();
             } while(signOption < 0 || signOption > 2);
         }

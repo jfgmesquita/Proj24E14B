@@ -30,7 +30,13 @@ public class MenuCliente {
                     				+ "3) Consultar os meus orçamentos\n"
                                     + "4) Comparar orçamentos\n"
                     				+ "0) Log out");
-                    option = input.nextInt();
+                    try {
+                        option = input.nextInt();
+                    }
+                    catch (Exception e) {
+                        System.out.println("\nERRO: Escolha uma das opções apresentadas.");
+                        option = -1;
+                    }
                     input.nextLine();
                 } while (option < 0 || option > 4);
 
@@ -55,8 +61,14 @@ public class MenuCliente {
                         	do {
                         		gestor.mostrarPaineis();
                         		System.out.print("Qual é o modelo de painel que deseja para o seu orçamento?: ");
-                        		panelOption = input.nextInt();
-                        		input.nextLine();
+                        		try {
+                                    panelOption = input.nextInt();
+                                }
+                                catch (Exception e) {
+                                    System.out.println("\nERRO: Escolha uma dos painéis apresentados.");
+                                    panelOption = 0;
+                                }
+                                input.nextLine();
                         	} while(panelOption < 1 || panelOption > gestor.getListaPaineis().size());
                         	
                         	gestor.gerarOrcamento(user.getUserId(), descricao, panelOption);
@@ -89,7 +101,13 @@ public class MenuCliente {
                                 + "3) Consultar os meus orçamentos\n"
                                 + "4) Comparar orçamentos\n"
                                 + "0) Log out");
-                        option = input.nextInt();
+                        try {
+                            option = input.nextInt();
+                        }
+                        catch (Exception e) {
+                            System.out.println("\nERRO: Escolha uma das opções apresentadas.");
+                            option = -1;
+                        }
                         input.nextLine();
                     } while (option < 0 || option > 4);
                 }
