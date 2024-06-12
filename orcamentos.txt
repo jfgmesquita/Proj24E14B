@@ -1,3 +1,4 @@
 userId,descricao,modelo,valorTotal,tempoTotalInstalacao,numPaineis,retorno,ocupacao
-U69tFz5,brasil,DCT-EI-2003,1566.0,32,9,18,19.349999999999998
-U69tFz5,painel novo unit,CTI-ADS-2022,2624.0,40,16,30,33.6
+U69tFz5,orca casa,DCT-EI-2024,1476.0,32,9,17,18.0
+U69tFz5,orcamento BYD,BYD-400P6-36,1422.0,27,9,16,17.766
+U69tFz5,orcamento 2,CS3U-400P,1458.0,32,9,17,17.856
