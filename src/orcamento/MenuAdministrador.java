@@ -36,7 +36,7 @@ public class MenuAdministrador {
 						option = input.nextInt();
 					}
 					catch (Exception e) {
-						System.out.println("\nERRO: Escolha uma das opções apresentadas.");
+						System.out.println("\nPor favor, introduza um número válido ou '0' para sair da sua conta.");
 						option = -1;
 					}
 					input.nextLine();
@@ -67,7 +67,7 @@ public class MenuAdministrador {
 		        				try {
 									precoUnitario = input.nextDouble();								
 								} catch (Exception e) {
-									System.out.println("ERRO: Insira um valor válido.");
+									System.out.println("Insira um valor válido.");
 									precoUnitario = -1;
 								}
 								input.nextLine();
@@ -78,7 +78,7 @@ public class MenuAdministrador {
 		        				try {
 									tempoInstalacao = input.nextDouble();
 								} catch (Exception e) {
-									System.out.println("ERRO: Insira um valor válido.");
+									System.out.println("Insira um valor válido.");
 									tempoInstalacao = -1;
 								}
 		        				input.nextLine();
@@ -89,7 +89,7 @@ public class MenuAdministrador {
 		        				try {
 									producaoKwh = input.nextDouble();
 								} catch (Exception e) {
-									System.out.println("ERRO: Insira um valor válido.");
+									System.out.println("Insira um valor válido.");
 									producaoKwh = -1;
 								}
 		        				input.nextLine();
@@ -97,11 +97,11 @@ public class MenuAdministrador {
 
 							double medida;
 							do{
-								System.out.print("Medida(Em m2): ");
+								System.out.print("Medida (Em m^2): ");
 								try {
 									medida = input.nextDouble();
 								} catch (Exception e) {
-									System.out.println("ERRO: Insira um valor válido.");
+									System.out.println("Insira um valor válido.");
 									medida = -1;
 								}
 								input.nextLine();
@@ -130,7 +130,7 @@ public class MenuAdministrador {
 		        				try {
 									modeloOption = input.nextInt();
 								} catch (Exception e) {
-									System.out.println("ERRO: Insira um valor válido.");
+									System.out.println("Insira um valor válido.");
 									modeloOption = -1;
 								}
 								input.nextLine();
@@ -143,7 +143,7 @@ public class MenuAdministrador {
 		        				try {
 									precoUnitario = input.nextDouble();
 								} catch (Exception e) {
-									System.out.println("ERRO: Insira um valor válido.");
+									System.out.println("Insira um valor válido.");
 									precoUnitario = -1;
 								}
 		        				input.nextLine();
@@ -162,7 +162,7 @@ public class MenuAdministrador {
 		        				try {
 									modeloOption = input.nextInt();
 								} catch (Exception e) {
-									System.out.println("ERRO: Insira um valor válido.");
+									System.out.println("Insira um valor válido.");
 									modeloOption = -1;
 								}
 								input.nextLine();
@@ -175,7 +175,7 @@ public class MenuAdministrador {
 		        				try {
 									tempoInstalacao = input.nextDouble();
 								} catch (Exception e) {
-									System.out.println("ERRO: Insira um valor válido.");
+									System.out.println("Insira um valor válido.");
 									tempoInstalacao = -1;
 								}
 		        				input.nextLine();
@@ -260,7 +260,7 @@ public class MenuAdministrador {
 							option = input.nextInt();
 						}
 						catch (Exception e) {
-							System.out.println("\nERRO: Escolha uma das opções apresentadas.");
+							System.out.println("\nPor favor, introduza um número válido ou '0' para sair da sua conta.");
 							option = -1;
 						}
 			        	input.nextLine();

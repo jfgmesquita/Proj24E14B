@@ -34,7 +34,7 @@ public class MenuCliente {
                         option = input.nextInt();
                     }
                     catch (Exception e) {
-                        System.out.println("\nERRO: Escolha uma das opções apresentadas.");
+                        System.out.println("\nPor favor, introduza um número válido ou '0' para sair da sua conta.");
                         option = -1;
                     }
                     input.nextLine();
@@ -65,7 +65,7 @@ public class MenuCliente {
                                     panelOption = input.nextInt();
                                 }
                                 catch (Exception e) {
-                                    System.out.println("\nERRO: Escolha uma dos painéis apresentados.");
+                                    System.out.println("\nEscolha uma dos painéis apresentados.");
                                     panelOption = 0;
                                 }
                                 input.nextLine();
@@ -105,7 +105,7 @@ public class MenuCliente {
                             option = input.nextInt();
                         }
                         catch (Exception e) {
-                            System.out.println("\nERRO: Escolha uma das opções apresentadas.");
+                            System.out.println("\nPor favor, introduza um número válido ou '0' para sair da sua conta.");
                             option = -1;
                         }
                         input.nextLine();
