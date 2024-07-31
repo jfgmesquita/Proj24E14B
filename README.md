@@ -1,4 +1,4 @@
-# Interdisciplinary Group Project in Java
+# Interdisciplinary Project in Java
 
 ## Object-Oriented Programming and Scrum (Agile)
 
@@ -20,6 +20,8 @@ As a solution to the mentioned problems, our application will help any intereste
 ##### Developers (Team 14): Ana Souto, Devysson Cardoso, João Mesquita, Thiago Rocha and Thomas Ramírez
 
 ##### Teachers and Scrum Masters: Professor Dr. Maria Paula Morais and Professor Dr. Maria Filomena Lopes
+
+##### Subjects: Object-Oriented Programming and Information Systems
 
 ##### Universidade Portucalense Infante D. Henrique
 
