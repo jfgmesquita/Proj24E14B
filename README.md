@@ -7,7 +7,7 @@
 ***
 
 Learning objectives: Recognize the objectives and concepts of agile approaches (SCRUM) for information systems development, using techniques for requirements identification and writing requirements using User Stories.
-Recognize the objectives and concepts of the object-oriented programming paradigm, designing and implementing a Java application that meets the specified requirements.
+Recognize the objectives and concepts of the object-oriented programming paradigm, designing and implementing a Java application that meets the specified requirements, using version control tools - Git.
 
 The team sought to develop a solution (software application) to solve a real-world problem, contributing to achieving the Sustainable Development Goals (SDGs), specifically SDG 11.
 
