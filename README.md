@@ -2,7 +2,7 @@
 
 ## Object-Oriented Programming and Scrum (Agile)
 
-#### Using Eclipse, Git and Trello
+#### Using Git and Trello
 
 ***
 
@@ -17,7 +17,7 @@ As a solution to the mentioned problems, our application will help any intereste
 
 ***
 
-##### Developers (Team 14): Ana Souto, Devysson Cardoso, João Mesquita, Thiago Rocha and Thomas Ramírez
+##### Developers and Product Owners (Team 14): Ana Souto, Devysson Cardoso, João Mesquita, Thiago Rocha and Thomas Ramírez
 
 ##### Teachers and Scrum Masters: Professor Dr. Maria Paula Morais and Professor Dr. Maria Filomena Lopes
 
